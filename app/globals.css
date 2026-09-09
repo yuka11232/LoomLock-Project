@@ -1,0 +1,169 @@
+@import "tailwindcss";
+
+/* ============================================================
+   LoomLock design tokens
+   Warm ivory ground, pomegranate primary, muted indigo secondary,
+   clay / walnut / soft gold accents, charcoal text.
+   ============================================================ */
+@theme {
+  /* Raw palette */
+  --color-ivory: #fbf7f1;
+  --color-parchment: #f4ece0;
+  --color-linen: #efe6d8;
+  --color-pomegranate: #8a2233;
+  --color-pomegranate-600: #751c2b;
+  --color-pomegranate-100: #f6e5e6;
+  --color-indigo-ink: #364a6e;
+  --color-indigo-100: #e5e9f1;
+  --color-clay: #b5674c;
+  --color-clay-100: #f7e7df;
+  --color-walnut: #6e4e37;
+  --color-gold: #b8862f;
+  --color-gold-100: #f7edd8;
+  --color-sage: #4f6b52;
+  --color-sage-100: #e6eee5;
+  --color-charcoal: #2a2522;
+  --color-stone: #6f655c;
+  --color-line: #e2d7c6;
+
+  /* Semantic aliases */
+  --color-canvas: #fbf7f1;
+  --color-surface: #ffffff;
+  --color-surface-sunk: #f7f1e8;
+
+  /* Typography */
+  --font-display: var(--font-fraunces), Georgia, "Times New Roman", serif;
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  /* Radii — rounded, not cartoonish */
+  --radius-card: 0.875rem;
+  --radius-field: 0.625rem;
+
+  /* Elevation — soft, warm-tinted */
+  --shadow-soft: 0 1px 2px rgba(42, 37, 34, 0.04), 0 8px 24px -12px rgba(42, 37, 34, 0.14);
+  --shadow-lift: 0 2px 4px rgba(42, 37, 34, 0.05), 0 16px 40px -16px rgba(42, 37, 34, 0.22);
+}
+
+/* ============================================================
+   Base
+   ============================================================ */
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background-color: var(--color-canvas);
+    color: var(--color-charcoal);
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    color: var(--color-charcoal);
+    letter-spacing: -0.015em;
+    line-height: 1.18;
+    text-wrap: balance;
+  }
+
+  p { text-wrap: pretty; }
+
+  /* Visible, consistent focus for keyboard users on every interactive thing */
+  :where(a, button, input, textarea, select, summary, [tabindex]):focus-visible {
+    outline: 2px solid var(--color-pomegranate);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  /* Larger default hit area on coarse pointers */
+  @media (pointer: coarse) {
+    :where(button, a[role="button"], [role="tab"]) {
+      min-height: 44px;
+    }
+  }
+
+  ::selection {
+    background: var(--color-pomegranate-100);
+    color: var(--color-pomegranate-600);
+  }
+}
+
+/* ============================================================
+   Utilities
+   ============================================================ */
+@utility container-page {
+  width: 100%;
+  margin-inline: auto;
+  max-width: 80rem;
+  padding-inline: 1rem;
+  @media (min-width: 640px) { padding-inline: 1.5rem; }
+  @media (min-width: 1024px) { padding-inline: 2rem; }
+}
+
+/* Subtle woven ground — a warp/weft grid, kept very low contrast */
+@utility weave-ground {
+  background-image:
+    repeating-linear-gradient(90deg, rgba(110, 78, 55, 0.055) 0 1px, transparent 1px 9px),
+    repeating-linear-gradient(0deg, rgba(110, 78, 55, 0.045) 0 1px, transparent 1px 9px);
+}
+
+/* A single warp thread used as a divider */
+@utility thread-rule {
+  height: 1px;
+  background-image: repeating-linear-gradient(
+    90deg,
+    var(--color-line) 0 10px,
+    transparent 10px 16px
+  );
+}
+
+@utility skip-link {
+  position: absolute;
+  left: 0.75rem;
+  top: -3rem;
+  z-index: 100;
+  background: var(--color-pomegranate);
+  color: #fff;
+  padding: 0.625rem 1rem;
+  border-radius: 0 0 0.5rem 0.5rem;
+  font-weight: 600;
+  transition: top 150ms ease;
+  &:focus { top: 0; }
+}
+
+/* ============================================================
+   Motion — every animation opts out under reduced-motion
+   ============================================================ */
+@keyframes ll-fade-up {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes ll-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes ll-shuttle {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+@utility animate-fade-up { animation: ll-fade-up 320ms ease-out both; }
+@utility animate-fade-in { animation: ll-fade-in 240ms ease-out both; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Scrollbars inside the order board */
+@utility thin-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-line) transparent;
+}
