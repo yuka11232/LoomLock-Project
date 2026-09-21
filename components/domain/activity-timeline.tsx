@@ -10,9 +10,9 @@ import { relativeTime } from "@/lib/utils";
 import { History } from "lucide-react";
 
 const ENTITY_HREF: Record<NonNullable<ActivityEvent["entity"]>["type"], (id: string) => string> = {
-  product: (id) => `/products/${id}`,
+  product: (id) => `/products/detail?id=${id}`,
   content: (id) => `/content?highlight=${id}`,
-  order: (id) => `/orders/${id}`,
+  order: (id) => `/orders/detail?id=${id}`,
   lesson: (id) => `/learn/${id}`,
   member: () => "/team",
 };

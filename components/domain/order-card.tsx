@@ -37,7 +37,7 @@ export function OrderCard({
   return (
     <li className="rounded-[var(--radius-card)] border border-line bg-surface shadow-[var(--shadow-soft)]">
       <Link
-        href={`/orders/${order.id}`}
+        href={`/orders/detail?id=${order.id}`}
         className="block rounded-t-[var(--radius-card)] p-3.5 transition-colors hover:bg-surface-sunk"
       >
         <div className="flex items-start justify-between gap-2">

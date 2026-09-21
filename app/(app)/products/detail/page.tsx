@@ -1,7 +1,7 @@
 "use client";
 
-import { use, useEffect, useMemo, useState } from "react";
-import { useRouter } from "next/navigation";
+import { Suspense, useEffect, useMemo, useState } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
 import {
   ArrowLeft,
   BadgeDollarSign,
@@ -38,8 +38,8 @@ import { useStore } from "@/lib/data/store";
 import { useI18n } from "@/lib/i18n";
 import { formatPrice, relativeTime } from "@/lib/utils";
 
-export default function ProductDetailPage({ params }: { params: Promise<{ id: string }> }) {
-  const { id } = use(params);
+function ProductDetailInner() {
+  const id = useSearchParams().get("id") ?? "";
   const { state, me, dispatch } = useStore();
   const { d, t, locale } = useI18n();
   const toast = useToast();
@@ -423,5 +423,20 @@ function SuggestPriceDialog({
         </Field>
       </div>
     </Dialog>
+  );
+}
+
+/**
+ * The id arrives as a query parameter rather than a path segment. Product ids
+ * are minted at runtime (lib/utils.ts), so a static export can never have
+ * pre-rendered /products/<id> — but one /products/detail/ page serves every
+ * id, whenever it was created. `useSearchParams` suspends, so the boundary
+ * below is required for the export to build.
+ */
+export default function ProductDetailPage() {
+  return (
+    <Suspense fallback={null}>
+      <ProductDetailInner />
+    </Suspense>
   );
 }
