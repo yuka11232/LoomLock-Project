@@ -81,11 +81,11 @@ export default function ApprovalsPage() {
     switch (approval.type) {
       case "product_publish":
       case "price_change":
-        return `/products/${approval.targetId}`;
+        return `/products/detail?id=${approval.targetId}`;
       case "content_publish":
         return `/content?highlight=${approval.targetId}`;
       case "customer_reply":
-        return approval.payload?.orderId ? `/orders/${approval.payload.orderId}` : null;
+        return approval.payload?.orderId ? `/orders/detail?id=${approval.payload.orderId}` : null;
     }
   }
 

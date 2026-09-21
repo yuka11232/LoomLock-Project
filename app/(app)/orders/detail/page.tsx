@@ -1,7 +1,7 @@
 "use client";
 
-import { use, useState } from "react";
-import { useRouter } from "next/navigation";
+import { Suspense, useState } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
 import {
   ArrowLeft,
   Check,
@@ -27,8 +27,8 @@ import { buildTemplate, TEMPLATE_COMMITS, TEMPLATE_KEYS, type TemplateKey } from
 import { ORDER_STAGES, type OrderStage } from "@/lib/types";
 import { cn, formatDate, formatDateTime, formatPrice, relativeTime } from "@/lib/utils";
 
-export default function OrderDetailPage({ params }: { params: Promise<{ id: string }> }) {
-  const { id } = use(params);
+function OrderDetailInner() {
+  const id = useSearchParams().get("id") ?? "";
   const { state, me, dispatch } = useStore();
   const { d, t, locale } = useI18n();
   const toast = useToast();
@@ -405,5 +405,14 @@ function Row({ label, value }: { label: string; value: string }) {
       <dt className="text-stone">{label}</dt>
       <dd className="break-words font-medium text-charcoal">{value}</dd>
     </div>
+  );
+}
+
+/** Same reasoning as the product detail route: order ids are runtime-minted. */
+export default function OrderDetailPage() {
+  return (
+    <Suspense fallback={null}>
+      <OrderDetailInner />
+    </Suspense>
   );
 }

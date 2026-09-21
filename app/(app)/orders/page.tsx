@@ -147,7 +147,7 @@ export default function OrdersPage() {
               return (
                 <li key={order.id}>
                   <Link
-                    href={`/orders/${order.id}`}
+                    href={`/orders/detail?id=${order.id}`}
                     className="flex flex-wrap items-center gap-3 px-4 py-3.5 transition-colors hover:bg-surface-sunk sm:px-5"
                   >
                     <span className="min-w-0 flex-1">

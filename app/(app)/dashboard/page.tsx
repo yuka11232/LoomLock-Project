@@ -276,7 +276,7 @@ export default function DashboardPage() {
                     return (
                       <li key={order.id}>
                         <Link
-                          href={`/orders/${order.id}`}
+                          href={`/orders/detail?id=${order.id}`}
                           className="-mx-2 flex items-center gap-3 rounded-[var(--radius-field)] px-2 py-3 transition-colors hover:bg-surface-sunk"
                         >
                           <span className="min-w-0 flex-1">

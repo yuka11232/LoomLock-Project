@@ -109,7 +109,7 @@ export default function TeamPage() {
                       {assigned.slice(0, 4).map((order) => (
                         <li key={order.id} className="text-sm">
                           <Link
-                            href={`/orders/${order.id}`}
+                            href={`/orders/detail?id=${order.id}`}
                             className="text-indigo-ink hover:underline"
                           >
                             {order.ref} · {t(order.requestedItem)}

@@ -18,7 +18,7 @@ export function ProductCard({ product }: { product: Product }) {
 
   return (
     <Card as="li" className="group overflow-hidden transition-shadow hover:shadow-[var(--shadow-lift)]">
-      <Link href={`/products/${product.id}`} className="block">
+      <Link href={`/products/detail?id=${product.id}`} className="block">
         <div className="relative aspect-[4/3] w-full overflow-hidden bg-linen">
           {cover ? (
             <ProductImageView image={cover} alt={t(cover.alt)} />

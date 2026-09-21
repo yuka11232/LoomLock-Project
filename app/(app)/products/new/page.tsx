@@ -107,7 +107,7 @@ export default function NewProductPage() {
       toast(d.productForm.savedDraft);
     }
 
-    router.push(`/products/${product.id}`);
+    router.push(`/products/detail?id=${product.id}`);
   }
 
   const dirty =
