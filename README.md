@@ -1,5 +1,7 @@
 # LoomLock
 
+**[Open the live demo →](https://yuka11232.github.io/LoomLock-Project/)**
+
 A shared digital workspace for artisan families: one place where a craftsperson
 and a younger relative run the business side of handmade work together.
 
