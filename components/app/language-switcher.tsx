@@ -23,7 +23,7 @@ export function LanguageSwitcher({
   onChange,
 }: {
   className?: string;
-  /** Codes only (EN / AZ) — for tight headers. */
+  /** Codes only (EN / AZ) for tight headers. */
   compact?: boolean;
   locales?: Locale[];
   /** Uncontrolled by default: reads and writes the workspace locale. */
@@ -39,7 +39,7 @@ export function LanguageSwitcher({
       role="radiogroup"
       aria-label={d.meta.switchTo}
       className={cn(
-        "inline-flex items-center gap-0.5 rounded-full border border-line bg-surface p-0.5",
+        "inline-flex items-center gap-0.5 rounded-[var(--radius-field)] border border-line bg-surface p-0.5",
         className,
       )}
     >
@@ -54,7 +54,7 @@ export function LanguageSwitcher({
             aria-checked={active}
             onClick={() => change(item)}
             className={cn(
-              "min-h-8 rounded-full px-2.5 text-sm font-medium transition-colors",
+              "min-h-8 rounded-[0.375rem] px-2.5 text-sm font-medium transition-colors",
               active
                 ? "bg-charcoal text-white"
                 : "text-stone hover:bg-surface-sunk hover:text-charcoal",

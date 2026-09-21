@@ -175,7 +175,7 @@ function LessonCard({
           {done ? (
             <span className="inline-flex items-center gap-1.5">
               <Check aria-hidden className="size-4" />
-              {d.learn.completed} — {d.learn.reviewLesson}
+              {d.learn.completed} · {d.learn.reviewLesson}
             </span>
           ) : (
             <span className="inline-flex items-center gap-1.5">

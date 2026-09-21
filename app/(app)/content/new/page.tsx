@@ -25,7 +25,7 @@ import { cn, newId, nowIso } from "@/lib/utils";
  * Preparing a post, in four steps.
  *
  * The caption is only generated once the family has chosen a product, a goal,
- * and a tone — because the starter is assembled from that product's own fields,
+ * and a tone, because the starter is assembled from that product's own fields,
  * and there is nothing honest to write before then.
  */
 export default function NewContentPage() {

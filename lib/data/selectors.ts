@@ -199,7 +199,7 @@ export interface SuggestedTask {
 }
 
 /**
- * "What needs doing" — the dashboard's core list.
+ * "What needs doing": the dashboard's core list.
  *
  * Built from the same state everything else reads, so completing an action
  * genuinely removes its row. Ordered by urgency to the business: an unanswered
@@ -279,11 +279,11 @@ export function suggestedTasks(state: AppState, member: Member, lessonTitle: (sl
         label: {
           en:
             returned.length === 1
-              ? "A post came back with a note — make the change"
+              ? "A post came back with a note. Make the change"
               : `${returned.length} posts came back with notes`,
           az:
             returned.length === 1
-              ? "Bir paylaşım qeydlə qayıtdı — dəyişikliyi edin"
+              ? "Bir paylaşım qeydlə qayıtdı. Dəyişikliyi edin"
               : `${returned.length} paylaşım qeydlərlə qayıtdı`,
         },
       });

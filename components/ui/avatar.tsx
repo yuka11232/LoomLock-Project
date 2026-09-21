@@ -9,7 +9,7 @@ const ACCENT: Record<Member["accent"], string> = {
 };
 
 /**
- * Initials rather than photographs. LoomLock holds no pictures of people —
+ * Initials rather than photographs. LoomLock holds no pictures of people,
  * only of the work.
  */
 export function Avatar({

@@ -6,7 +6,7 @@ import { createSeedState, SEED_VERSION } from "./seed";
  *
  * Everything above this file talks to `repository`, never to localStorage
  * directly. Swapping the demo for a real backend means writing a second object
- * with the same three methods and choosing between them here — no component or
+ * with the same three methods and choosing between them here. No component or
  * reducer changes. See docs/ARCHITECTURE.md for the Supabase plan.
  */
 export interface StateRepository {
@@ -77,7 +77,7 @@ export const localStorageRepository: StateRepository = {
     try {
       window.localStorage.removeItem(STORAGE_KEY);
     } catch {
-      // Nothing to do — a failed clear leaves the previous state in place.
+      // Nothing to do: a failed clear leaves the previous state in place.
     }
   },
 };

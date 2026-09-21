@@ -7,7 +7,10 @@ import { cn } from "@/lib/utils";
  * screen reader.
  */
 const badgeVariants = cva(
-  "inline-flex items-center gap-1.5 rounded-full border font-medium [&_svg]:shrink-0",
+  // Squared corners, not a pill: closer to a printed label than a chip, and it
+  // sits better against the card and field radii. `shrink-0` keeps a status
+  // from being squashed when it shares a row with a long product name.
+  "inline-flex shrink-0 items-center gap-1.5 rounded-[0.3125rem] border font-medium [&_svg]:shrink-0",
   {
     variants: {
       tone: {

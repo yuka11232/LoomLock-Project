@@ -3,8 +3,8 @@ import { cn } from "@/lib/utils";
 /**
  * The LoomLock mark: two threads crossing on a loom.
  *
- * Deliberately not a padlock. The name comes from the lock of a loom — the
- * point where warp and weft hold — and the mark says weaving, not security.
+ * Deliberately not a padlock. The name comes from the lock of a loom, the
+ * point where warp and weft hold, and the mark says weaving, not security.
  */
 export function LoomMark({ className }: { className?: string }) {
   return (

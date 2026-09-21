@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+  <rect width="32" height="32" rx="7" fill="#fbf7f1"/>
+  <g stroke="#8a2233" fill="none" stroke-linecap="round">
+    <!-- warp: the fixed threads -->
+    <path d="M9 5v22M16 5v22M23 5v22" stroke-width="1.6" opacity="0.35"/>
+    <!-- weft: the thread passing over and under -->
+    <path d="M4 12c4 0 4 3 8 3s4-3 8-3 4 3 8 3" stroke-width="2.6"/>
+    <path d="M4 20c4 0 4 3 8 3s4-3 8-3 4 3 8 3" stroke-width="2.6"/>
+  </g>
+</svg>

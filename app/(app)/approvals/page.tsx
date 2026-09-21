@@ -39,7 +39,7 @@ const TYPE_ICON: Record<ApprovalType, typeof Package> = {
  * The approval queue.
  *
  * For the owner this is a short list of decisions. For a collaborator it is a
- * record of what they sent and what came back — deliberately visible, because
+ * record of what they sent and what came back, deliberately visible, because
  * "waiting on somebody" is only frustrating when you cannot see it.
  */
 export default function ApprovalsPage() {
@@ -156,7 +156,7 @@ export default function ApprovalsPage() {
                         <div className="mt-3 flex flex-wrap items-center gap-2 text-xs text-stone">
                           {requester ? <Avatar member={requester} size="sm" /> : null}
                           <span>
-                            {d.approvals.requestedBy(requester?.name ?? "—")} ·{" "}
+                            {d.approvals.requestedBy(requester?.name ?? d.common.notSet)} ·{" "}
                             {relativeTime(approval.requestedAt, locale)}
                           </span>
                         </div>
@@ -225,7 +225,7 @@ export default function ApprovalsPage() {
                       <div className="min-w-0">
                         <p className="font-medium leading-snug">{t(approval.title)}</p>
                         <p className="mt-0.5 text-xs text-stone">
-                          {decider?.name ?? "—"} ·{" "}
+                          {decider?.name ?? d.common.notSet} ·{" "}
                           {approval.decidedAt ? relativeTime(approval.decidedAt, locale) : ""}
                         </p>
                       </div>

@@ -5,7 +5,7 @@
  * typed as `typeof en`, so a missing Azerbaijani string is a build error rather
  * than a blank space in the interface.
  *
- * Business *content* (product stories, order notes) is not here — it lives as
+ * Business *content* (product stories, order notes) is not here. It lives as
  * `Localized` pairs on the records themselves.
  */
 export const en = {
@@ -49,6 +49,7 @@ export const en = {
     by: "by",
     today: "Today",
     priceOnRequest: "Price on request",
+    notSet: "Not set",
     seeAll: "See all",
     tryAgain: "Try again",
     somethingWrong: "Something went wrong",
@@ -155,7 +156,7 @@ export const en = {
 
   landing: {
     navHowItWorks: "How it works",
-    navFeatures: "What is inside",
+    navFeatures: "The six parts",
     navLearning: "Learning",
     heroEyebrow: "For artisan families",
     heroTitle: "Your craft. Their digital skills. One family business.",
@@ -203,32 +204,39 @@ export const en = {
       },
     ],
 
-    featuresTitle: "What is inside",
-    featuresBody: "Five parts, connected to each other.",
+    featuresTitle: "Six parts that feed each other",
+    featuresBody:
+      "A product becomes a post. A post brings an enquiry. An enquiry becomes an order. The lessons cover whatever is unfamiliar along the way.",
     features: [
       {
         title: "Family workspace",
+        detail: "Two roles, one view",
         body: "One dashboard with what needs doing today: photos missing, drafts to read, enquiries to answer.",
       },
       {
         title: "Product catalogue",
-        body: "Guided questions instead of a long form. Materials, production time, price, and the story behind the piece.",
+        detail: "Guided questions, not a blank form",
+        body: "Materials, production time, price, and the story behind the piece.",
       },
       {
         title: "Social media studio",
-        body: "Turn a product into a post draft, choose a tone, preview it, get it approved, then copy the caption.",
+        detail: "Draft, approve, copy",
+        body: "Turn a product into a post draft, choose a tone, preview it, then copy the caption by hand.",
       },
       {
         title: "Orders and enquiries",
-        body: "A visual board from first enquiry to delivered, with ready-made messages you can edit before sending.",
+        detail: "Six stages, one board",
+        body: "From first enquiry to delivered, with ready-made messages you can edit before sending.",
       },
       {
         title: "Learning path",
-        body: "Ten short lessons on pricing, photographs, customer messages, and keeping information safe.",
+        detail: "Ten short lessons",
+        body: "Pricing, photographs, customer messages, and keeping information safe.",
       },
       {
         title: "A public page",
-        body: "A simple storefront with the artisan's story and their products, and a form for customer enquiries.",
+        detail: "One link to share",
+        body: "A storefront with the artisan's story and their products, and a form for customer enquiries.",
       },
     ],
 
@@ -245,14 +253,18 @@ export const en = {
 
     voiceTitle: "The artisan's voice stays the artisan's",
     voiceBody:
-      "LoomLock never writes a story about a craft it does not know. When you prepare a post, it builds a starting point out of what the family has already written — the materials, the time, the meaning of a motif — and leaves the sentences to the people who know them.",
+      "LoomLock never writes a story about a craft it does not know. When you prepare a post, it builds a starting point out of what the family has already written (the materials, the time, the meaning of a motif) and leaves the sentences to the people who know them.",
     voicePoints: [
       "No invented cultural claims",
       "No exaggerated marketing language",
       "Nothing public without the artisan's approval",
     ],
 
-    ctaTitle: "Try it with a demo business",
+    ctaTitle: "Nərgiz's studio is already set up",
+    ctaSince: (year: number) => `Weaving since ${year}`,
+    ctaFactProducts: "In the catalogue",
+    ctaFactOrders: "On the order board",
+    ctaFactLessons: "Lessons to work through",
     ctaBody:
       "A fictional textile studio in Baku, with products half-finished, drafts waiting to be read, and orders in progress. Switch between both roles to see how they fit together.",
     ctaPrimary: "Open the demo",
@@ -533,7 +545,7 @@ export const en = {
     uploadPhoto: "Upload a photograph",
     uploadHelp: "JPG or PNG. Photos are resized in your browser and stay on this device.",
     addPlaceholder: "Use a placeholder instead",
-    placeholderNote: "Placeholder pattern — replace this with a real photograph",
+    placeholderNote: "Placeholder pattern. Replace this with a real photograph",
     setCover: "Use as main photo",
     coverPhoto: "Main photo",
     altLabel: "Describe this photograph",
@@ -646,7 +658,7 @@ export const en = {
     chooseProductBody: "Posts work best about a product that already has a story and a photo.",
     noProductsTitle: "No products to post about yet",
     noProductsBody: "Add a product first, then come back to prepare a post.",
-    productHasNoStory: "This product has no story yet — the starter will be thin.",
+    productHasNoStory: "This product has no story yet, so the starter will be thin.",
     createdDraft: "Draft saved",
   },
 
@@ -889,7 +901,7 @@ export const en = {
     messagePlaceholder:
       "I would like a runner for a table 180 cm long. Is a different colour possible?",
     send: "Send the enquiry",
-    sentTitle: "Thank you — your message has arrived",
+    sentTitle: "Thank you. Your message has arrived",
     sentBody:
       "The family will see it on their order board. In this demo nothing is emailed to anyone.",
     sendAnother: "Send another enquiry",
@@ -926,6 +938,145 @@ export const en = {
       member_invited: "invited a family member",
       enquiry_received: "received an enquiry",
     },
+  },
+
+  /**
+   * Privacy and terms.
+   *
+   * Written to describe what this build actually does, which is unusually
+   * little: no account, no server, no analytics. Two details belong to whoever
+   * operates the site (a contact address and a governing law) and are marked
+   * with `operatorTodo` until they are filled in.
+   */
+  legal: {
+    privacyTitle: "Privacy",
+    termsTitle: "Terms",
+    privacyHeading: "Privacy policy",
+    termsHeading: "Terms and conditions",
+    privacyLead:
+      "LoomLock is a working prototype. It has no accounts and no server that stores your work, so there is very little to say here. This page says it plainly.",
+    termsLead:
+      "These terms cover the LoomLock prototype and the demo workspace. Plain language, because the people this is built for should not need a lawyer to read it.",
+    lastUpdated: (date: string) => `Last updated ${date}`,
+    backHome: "Back to LoomLock",
+    operatorTodoTitle: "Before this site goes live",
+    operatorTodoBody:
+      "Two details still belong to whoever operates this site: a contact address for privacy questions, and the country whose law applies. Both are marked below and must be filled in before launch.",
+    placeholderContact: "[add the operator's contact email before launch]",
+    placeholderLaw: "[add the governing country or region before launch]",
+    footerLine: "No accounts. No tracking. No payments.",
+
+    privacySections: [
+      {
+        heading: "Nothing you enter leaves your device",
+        body: [
+          "Everything you create in the demo workspace is stored in your own browser, using local storage on the device you are using. Products, orders, captions, notes, lesson answers, and photographs all stay there.",
+          "There is no LoomLock server holding a copy, because this build does not have one. Nobody at LoomLock can see what you typed.",
+        ],
+      },
+      {
+        heading: "No account, no tracking, no advertising",
+        body: [
+          "You do not sign up and you do not give an email address. There are no analytics scripts, no advertising networks, no tracking pixels, and no cookies used to follow you between sites.",
+          "The fonts are served from this same site rather than fetched from a font provider, so opening a page does not tell a third party that you visited.",
+        ],
+      },
+      {
+        heading: "Photographs you add",
+        body: [
+          "A photograph you add to a product is resized inside your browser and saved in that same local storage. It is never uploaded. If you open LoomLock on a different device, your photographs will not be there, because they never left the first one.",
+        ],
+      },
+      {
+        heading: "Enquiries sent from the public page",
+        body: [
+          "The enquiry form on the demo storefront writes a new order into your own browser so you can see how an enquiry reaches the order board. No message is emailed or sent to anyone.",
+        ],
+      },
+      {
+        heading: "Please do not put real customers in the demo",
+        body: [
+          "Because this is a prototype, treat it as a sketchbook rather than a filing cabinet. If you are trying LoomLock out, use made-up names and contact details rather than a real customer's.",
+        ],
+      },
+      {
+        heading: "Removing everything",
+        body: [
+          "Open Settings and choose Reset the demo. That restores the original demo business and discards everything you changed.",
+          "Clearing site data for this domain in your browser also removes all of it. Neither action needs to be requested from us, because we do not hold anything to delete.",
+        ],
+      },
+      {
+        heading: "Families and younger users",
+        body: [
+          "LoomLock is designed to be used by an adult and a younger family member together. This build collects no personal information from anyone, of any age, and transmits none.",
+          "The workspace does not track a younger member's activity for a parent to review. The shared activity feed shows what was done to the business, which both people can see equally.",
+        ],
+      },
+      {
+        heading: "If LoomLock becomes a hosted product",
+        body: [
+          "Accounts and a hosted database are on the roadmap and do not exist yet. If that changes, this page will be rewritten before any account can be created, and the change will be dated at the top.",
+        ],
+      },
+    ],
+
+    termsSections: [
+      {
+        heading: "What LoomLock is",
+        body: [
+          "LoomLock is a prototype of a shared workspace for artisan families. It is provided as it is, for evaluation, without a service level or a guarantee that it will keep working.",
+        ],
+      },
+      {
+        heading: "The demo business is fictional",
+        body: [
+          "Nərgiz Textile Studio, the people in it, its products, its orders, and its customers were written for this demo. It is not a real workshop and it is not a LoomLock partner. Nothing on the demo storefront is for sale.",
+        ],
+      },
+      {
+        heading: "What LoomLock does not do",
+        body: [
+          "It does not publish to Instagram, Facebook, TikTok, or any other service. It prepares a caption for you to copy across by hand.",
+          "It does not process payments, hold funds, or connect to a bank account.",
+          "It does not send or receive customer messages on your behalf.",
+          "Nothing in the learning path is legal, tax, or financial advice. It is general guidance for a small craft business, and a real decision about money or law deserves a professional.",
+        ],
+      },
+      {
+        heading: "Your work is yours",
+        body: [
+          "The products, stories, captions, and photographs you enter belong to you. They stay on your device, and LoomLock claims no rights over them.",
+          "You are responsible for having the right to use whatever you add, including photographs of work made by someone else.",
+        ],
+      },
+      {
+        heading: "Using it reasonably",
+        body: [
+          "Do not use LoomLock to break the law, to impersonate a person or a business, or to make claims about a craft tradition that you know to be untrue.",
+        ],
+      },
+      {
+        heading: "Your data can be lost",
+        body: [
+          "Because everything lives in your browser, it can disappear: clearing site data, private browsing, a new device, or a browser running out of space will all take it with them. Keep your own copy of anything you would be sorry to lose.",
+        ],
+      },
+      {
+        heading: "No warranty and limited liability",
+        body: [
+          "The prototype is provided without warranties of any kind, express or implied. To the extent the law allows, LoomLock is not liable for lost work, lost business, or any indirect loss arising from using it.",
+        ],
+      },
+      {
+        heading: "Changes to these terms",
+        body: [
+          "These terms may change as the product does. The date at the top of this page shows when they were last revised.",
+        ],
+      },
+    ],
+    governingLawHeading: "Governing law",
+    contactHeading: "Contact",
   },
 
   errors: {

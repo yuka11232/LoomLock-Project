@@ -23,7 +23,7 @@ import { freshState } from "./storage";
  *      so the family can always see what happened and who did it.
  *   2. Approvals are the only path by which a collaborator's public, financial,
  *      or hard-to-undo change takes effect. Approving an approval is what
- *      applies the underlying change — see `applyApproval`.
+ *      applies the underlying change. See `applyApproval`.
  */
 
 export type Action =
@@ -160,7 +160,7 @@ function openApproval(state: AppState, approval: Approval): AppState {
 
 /**
  * Applying an approved request. This is where a collaborator's proposal
- * actually changes the business — never at the moment they submitted it.
+ * actually changes the business, never at the moment they submitted it.
  */
 function applyApproval(state: AppState, approval: Approval, actorId: string): AppState {
   switch (approval.type) {

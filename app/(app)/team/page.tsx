@@ -22,8 +22,8 @@ import { formatDate } from "@/lib/utils";
 /**
  * The family page.
  *
- * The permission table at the bottom is rendered from lib/permissions.ts — the
- * same module the rest of the app enforces — so what the family reads here is
+ * The permission table at the bottom is rendered from lib/permissions.ts, the
+ * same module the rest of the app enforces, so what the family reads here is
  * always what the app actually does.
  */
 export default function TeamPage() {
@@ -112,7 +112,7 @@ export default function TeamPage() {
                             href={`/orders/${order.id}`}
                             className="text-indigo-ink hover:underline"
                           >
-                            {order.ref} — {t(order.requestedItem)}
+                            {order.ref} · {t(order.requestedItem)}
                           </Link>
                           {t(order.nextAction) ? (
                             <span className="block text-xs text-stone">{t(order.nextAction)}</span>
@@ -164,7 +164,7 @@ export default function TeamPage() {
                     <span className="min-w-0 flex-1">
                       <span className="block font-medium">{invitation.name}</span>
                       <span className="block text-xs text-stone">
-                        {invitation.contact} · {d.team.invitedBy(inviter?.name ?? "—")}
+                        {invitation.contact} · {d.team.invitedBy(inviter?.name ?? d.common.notSet)}
                       </span>
                     </span>
                     <Badge tone="pending" size="sm">
@@ -243,7 +243,7 @@ function PermissionTable() {
         </p>
       </CardHeader>
       <CardBody className="pt-0">
-        <div className="thin-scrollbar overflow-x-auto">
+        <div className="scroll-strip-x">
           <table className="w-full min-w-[34rem] border-collapse text-sm">
             <caption className="sr-only">{d.permissions.whoCanDoWhat}</caption>
             <thead>

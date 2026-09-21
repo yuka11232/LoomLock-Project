@@ -9,8 +9,8 @@ import { cn } from "@/lib/utils";
  * calls them placeholders, and the label below the picture says so wherever a
  * family member could mistake one for a real photograph.
  *
- * Each swatch is deterministic — the same motif and palette always draw the
- * same picture — so a product looks the same on every screen and after a reload.
+ * Each swatch is deterministic: the same motif and palette always draw the
+ * same picture, so a product looks the same on every screen and after a reload.
  */
 
 interface Palette {
@@ -53,18 +53,25 @@ function MotifTile({ motif, palette }: { motif: MotifName; palette: Palette }) {
       );
 
     case "pomegranate":
+      // Round body with the calyx: the short crown of sepals a pomegranate
+      // keeps at the top, which is what makes the fruit recognisable.
       return (
         <>
-          <circle cx="20" cy="22" r="9" fill="none" stroke={palette.thread} strokeWidth="2" />
           <path
-            d="M20 13v-4M17 10l3-3 3 3"
+            d="M20 12c5 0 8.5 4.2 8.5 9S25 30 20 30s-8.5-4.2-8.5-9 3.5-9 8.5-9Z"
             fill="none"
             stroke={palette.thread}
             strokeWidth="2"
+          />
+          <path
+            d="M18.3 12.4 18.8 9.4 20 10.9 21.2 9.4 21.7 12.4"
+            fill="none"
+            stroke={palette.thread}
+            strokeWidth="1.6"
             strokeLinecap="round"
             strokeLinejoin="round"
           />
-          <circle cx="20" cy="22" r="3" fill={palette.accent} />
+          <circle cx="20" cy="21.5" r="3" fill={palette.accent} />
         </>
       );
 
@@ -82,7 +89,7 @@ function MotifTile({ motif, palette }: { motif: MotifName; palette: Palette }) {
       );
 
     case "medallion":
-      // A stepped diamond — the beginner's pattern from the demo story.
+      // A stepped diamond, the beginner's pattern from the demo story.
       return (
         <>
           <path

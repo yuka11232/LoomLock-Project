@@ -4,8 +4,8 @@ import type { ContentGoal, ContentTone, Locale, Product } from "./types";
  * Caption starters.
  *
  * This is deliberately NOT a writing assistant. It assembles sentences out of
- * what the family has already entered about the product — the name, the
- * materials, the production time, the story the artisan wrote — and leaves a
+ * what the family has already entered about the product: the name, the
+ * materials, the production time, the story the artisan wrote. It leaves a
  * clearly marked [square bracket] wherever it has nothing to say.
  *
  * Rules it follows:
@@ -71,8 +71,8 @@ function availabilityLine(product: Product, locale: Locale): string {
   }
   if (product.stockStatus === "made_to_order" || product.madeToOrder) {
     return locale === "az"
-      ? "Sifarişlə hazırlanır — yazın, tarixi razılaşdıraq."
-      : "Made to order — send a message and we will agree a date.";
+      ? "Sifarişlə hazırlanır. Yazın, tarixi razılaşdıraq."
+      : "Made to order. Send a message and we will agree a date.";
   }
   return locale === "az" ? "Hazırdır və göndərilə bilər." : "Ready now.";
 }
@@ -111,7 +111,7 @@ export function buildCaptionStarter({ product, goal, tone, locale }: StarterInpu
             : `${name}.`
           : tone === "informative"
             ? az
-              ? `${name} — dəzgahdan təzə çıxıb.`
+              ? `${name}, dəzgahdan təzə çıxıb.`
               : `${name}, new off the loom.`
             : az
               ? `Bu həftə dəzgahdan çıxan iş: ${name}.`
@@ -126,8 +126,8 @@ export function buildCaptionStarter({ product, goal, tone, locale }: StarterInpu
         lines.push(
           gap(
             {
-              en: "Add the story behind this piece — who taught you, or what the pattern means",
-              az: "Bu işin arxasındakı hekayəni əlavə edin — sizə kim öyrədib və ya naxış nə deməkdir",
+              en: "Add the story behind this piece: who taught you, or what the pattern means",
+              az: "Bu işin arxasındakı hekayəni əlavə edin: sizə kim öyrədib və ya naxış nə deməkdir",
             },
             locale,
           ),
@@ -210,7 +210,7 @@ export function buildCaptionStarter({ product, goal, tone, locale }: StarterInpu
 }
 
 /**
- * Hashtags built from the product's own category and materials — not from a
+ * Hashtags built from the product's own category and materials, not from a
  * trending list, and never more than the family would write themselves.
  */
 export function buildHashtags(product: Product): string[] {
@@ -243,7 +243,7 @@ export function hasUnfilledPrompts(caption: string): boolean {
 
 /**
  * Words LoomLock will not put in a caption on the family's behalf. Shown as a
- * gentle reminder in the Studio, never as a block — if the artisan genuinely
+ * gentle reminder in the Studio, never as a block. If the artisan genuinely
  * talks that way, that is their call.
  */
 export const OVERCLAIM_WORDS = [

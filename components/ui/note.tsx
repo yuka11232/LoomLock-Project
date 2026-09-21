@@ -5,7 +5,7 @@ type NoteTone = "info" | "approval" | "caution" | "later";
 
 const TONE_STYLES: Record<NoteTone, string> = {
   info: "border-indigo-ink/20 bg-indigo-100/70 text-indigo-ink",
-  // Approval notices are supportive, never alarming — soft gold, not red.
+  // Approval notices are supportive, never alarming: soft gold, not red.
   approval: "border-gold/30 bg-gold-100/70 text-[#7a5714]",
   caution: "border-clay/30 bg-clay-100/70 text-[#82452f]",
   later: "border-line bg-surface-sunk text-stone",
@@ -64,7 +64,7 @@ export function Note({
  */
 export function ComingLaterTag({ label }: { label: string }) {
   return (
-    <span className="inline-flex items-center gap-1 rounded-full border border-line bg-surface-sunk px-2 py-0.5 text-[0.6875rem] font-medium text-stone">
+    <span className="inline-flex items-center gap-1 rounded-[0.3125rem] border border-line bg-surface-sunk px-2 py-0.5 text-[0.6875rem] font-medium text-stone">
       <Clock3 aria-hidden className="size-3" />
       {label}
     </span>

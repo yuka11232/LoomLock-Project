@@ -62,7 +62,7 @@ export function formatDateTime(iso: string, locale: Locale): string {
 }
 
 /**
- * "3 days ago" / "3 gün əvvəl". Kept deliberately coarse — the demo data is
+ * "3 days ago" / "3 gün əvvəl". Kept deliberately coarse: the demo data is
  * seeded relative to today, and exact timestamps add noise to the activity feed.
  */
 export function relativeTime(iso: string, locale: Locale): string {
@@ -84,7 +84,16 @@ export function relativeTime(iso: string, locale: Locale): string {
   }
 }
 
-/** Prices are shown in manat. The MVP never processes a payment. */
+/**
+ * Prices are shown in manat, written the way the family writes them: "95 AZN".
+ *
+ * Intl's currency style puts the code first in English ("AZN 95"), which is
+ * not how anyone in Baku writes a price, and it would disagree with every
+ * price typed into the lessons and message templates. So the number is
+ * localised and the code appended.
+ *
+ * The MVP never processes a payment.
+ */
 export function formatPrice(
   amount: number | null,
   locale: Locale,
@@ -92,11 +101,10 @@ export function formatPrice(
 ): string {
   if (amount === null) return onRequestLabel;
   try {
-    return new Intl.NumberFormat(LOCALE_TAG[locale], {
-      style: "currency",
-      currency: "AZN",
+    const number = new Intl.NumberFormat(LOCALE_TAG[locale], {
       maximumFractionDigits: 0,
     }).format(amount);
+    return `${number} AZN`;
   } catch {
     return `${amount} AZN`;
   }
