@@ -35,7 +35,7 @@ import { formatPrice, newId, nowIso, sameInBoth } from "@/lib/utils";
  * This is what a customer sees: the artisan's story, the pieces the family
  * chose to publish, and one way to start a conversation. No prices are taken,
  * no account is created, and an enquiry sent here lands on the family's order
- * board as a New enquiry — which is how the demo's inbox fills up.
+ * board as a New enquiry, which is how the demo's inbox fills up.
  */
 export default function StorefrontPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = use(params);
@@ -101,7 +101,7 @@ export default function StorefrontPage({ params }: { params: Promise<{ slug: str
           <div aria-hidden className="weave-ground absolute inset-0 opacity-60" />
           <div className="container-page relative grid gap-10 py-14 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
             <div>
-              <p className="inline-flex items-center gap-2 rounded-full border border-line bg-surface px-3 py-1 text-sm text-walnut">
+              <p className="flex items-center gap-2 text-sm font-medium uppercase tracking-[0.12em] text-walnut">
                 <MapPin aria-hidden className="size-3.5" />
                 {t(business.location)}
               </p>

@@ -32,7 +32,7 @@ import { formatPrice, newId, nowIso } from "@/lib/utils";
  * Adding a product, as a conversation rather than a form.
  *
  * Six short steps, each one question at a time, and nothing required except a
- * name — an artisan can save a half-finished piece and come back to it, which
+ * name, so an artisan can save a half-finished piece and come back to it, which
  * is how the demo's unfinished drafts got there.
  */
 export default function NewProductPage() {
@@ -231,27 +231,27 @@ function ReviewStep({ draft }: { draft: ProductDraftValue }) {
   const cover = draft.images.find((i) => i.isCover) ?? draft.images[0];
 
   const rows: { label: string; value: string }[] = [
-    { label: d.products.fields.name, value: draft.name || "—" },
+    { label: d.products.fields.name, value: draft.name || d.common.notSet },
     { label: d.products.fields.category, value: d.products.categories[draft.category] },
-    { label: d.products.fields.description, value: draft.description || "—" },
-    { label: d.products.fields.story, value: draft.story || "—" },
+    { label: d.products.fields.description, value: draft.description || d.common.notSet },
+    { label: d.products.fields.story, value: draft.story || d.common.notSet },
     {
       label: d.products.fields.price,
       value: draft.priceOnRequest
         ? d.common.priceOnRequest
         : draft.price
           ? formatPrice(Number(draft.price), locale, d.common.priceOnRequest)
-          : "—",
+          : d.common.notSet,
     },
     {
       label: d.products.fields.productionDays,
-      value: draft.productionDays ? d.products.days(Number(draft.productionDays)) : "—",
+      value: draft.productionDays ? d.products.days(Number(draft.productionDays)) : d.common.notSet,
     },
     {
       label: d.products.fields.materials,
-      value: draft.materials.length > 0 ? draft.materials.join(", ") : "—",
+      value: draft.materials.length > 0 ? draft.materials.join(", ") : d.common.notSet,
     },
-    { label: d.products.fields.dimensions, value: draft.dimensions || "—" },
+    { label: d.products.fields.dimensions, value: draft.dimensions || d.common.notSet },
   ];
 
   return (

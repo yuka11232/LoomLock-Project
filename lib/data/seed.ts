@@ -14,7 +14,7 @@ import type {
  * Nərgiz Textile Studio is a FICTIONAL business written for this demo. It is not
  * a real workshop and is not a LoomLock partner. The cultural references
  * (the pomegranate motif, the buta, the Quba weaving region) are real and are
- * used plainly, as a weaver would mention them — not as decoration.
+ * used plainly, as a weaver would mention them, not as decoration.
  *
  * The data is shaped to show the collaboration loop in progress:
  *   - Leyla has a product waiting for Nərgiz to approve
@@ -205,7 +205,7 @@ const products: Product[] = [
     },
     story: {
       en: "The pattern is a simple stepped diamond, the first thing my mother taught me because it teaches you to count. I still weave one whenever I set up a new warp.",
-      az: "Naxış sadə pilləli romb şəklidir — anamın mənə ilk öyrətdiyi şey, çünki saymağı öyrədir. Yeni əriş qurduğum hər dəfə bir dənə toxuyuram.",
+      az: "Naxış sadə pilləli romb şəklidir, anamın mənə ilk öyrətdiyi şey, çünki saymağı öyrədir. Yeni əriş qurduğum hər dəfə bir dənə toxuyuram.",
     },
     price: 70,
     priceOnRequest: false,
@@ -330,7 +330,7 @@ const contentDrafts: ContentDraft[] = [
     platform: "instagram",
     language: "en",
     caption:
-      "Why there is a pomegranate at each end of this runner.\n\nMy grandmother learned to weave in a village outside Quba, on a loom her father built. She puts a pomegranate at each end of a table runner the way her mother did — a wish for a full house.\n\nThe red is dyed with madder root, so no two runners come out exactly the same shade. 150 × 40 cm, about nine days on the loom.",
+      "Why there is a pomegranate at each end of this runner.\n\nMy grandmother learned to weave in a village outside Quba, on a loom her father built. She puts a pomegranate at each end of a table runner the way her mother did, as a wish for a full house.\n\nThe red is dyed with madder root, so no two runners come out exactly the same shade. 150 × 40 cm, about nine days on the loom.",
     hashtags: ["handwoven", "pomegranate", "azerbaijantextiles", "madderdye"],
     status: "in_review",
     createdBy: COLLAB_ID,
@@ -345,11 +345,11 @@ const contentDrafts: ContentDraft[] = [
     platform: "instagram",
     language: "en",
     caption:
-      "A luxury statement piece for your wall — an exclusive masterpiece of Azerbaijani heritage weaving, available now.\n\n40 × 55 cm, ready to hang.",
+      "A luxury statement piece for your wall, an exclusive masterpiece of Azerbaijani heritage weaving, available now.\n\n40 × 55 cm, ready to hang.",
     hashtags: ["luxury", "wallart", "exclusive"],
     status: "changes_requested",
     reviewNote:
-      "Leyla, please take out 'luxury', 'exclusive' and 'masterpiece' — I would never say that about my own work. Say what it actually is: a stepped diamond, the first pattern my mother taught me. That is more interesting than 'heritage'.",
+      "Leyla, please take out 'luxury', 'exclusive' and 'masterpiece'. I would never say that about my own work. Say what it actually is: a stepped diamond, the first pattern my mother taught me. That is more interesting than 'heritage'.",
     createdBy: COLLAB_ID,
     createdAt: daysAgo(4),
     updatedAt: daysAgo(3),
@@ -432,8 +432,8 @@ const orders: Order[] = [
     quantity: 4,
     createdAt: daysAgo(6, 11, 0),
     enquiry: {
-      en: "Four cushion covers for a living room. Two in the indigo you have, and two in something warmer if you can — my wife likes the brown in your wall pieces.",
-      az: "Qonaq otağı üçün dörd yastıq üzlüyü. İkisi sizdəki indiqo rəngdə, ikisi mümkünsə daha isti rəngdə — həyat yoldaşım divar işlərinizdəki qəhvəyini bəyənir.",
+      en: "Four cushion covers for a living room. Two in the indigo you have, and two in something warmer if you can. My wife likes the brown in your wall pieces.",
+      az: "Qonaq otağı üçün dörd yastıq üzlüyü. İkisi sizdəki indiqo rəngdə, ikisi mümkünsə daha isti rəngdə. Həyat yoldaşım divar işlərinizdəki qəhvəyini bəyənir.",
     },
     dueDate: daysAhead(21),
     stage: "discussing",
@@ -689,7 +689,7 @@ const approvals: Approval[] = [
     decidedBy: OWNER_ID,
     decidedAt: daysAgo(3, 8, 30),
     reviewNote:
-      "Leyla, please take out 'luxury', 'exclusive' and 'masterpiece' — I would never say that about my own work. Say what it actually is: a stepped diamond, the first pattern my mother taught me.",
+      "Leyla, please take out 'luxury', 'exclusive' and 'masterpiece'. I would never say that about my own work. Say what it actually is: a stepped diamond, the first pattern my mother taught me.",
   },
 ];
 
@@ -857,8 +857,8 @@ export function createSeedState(): AppState {
       spokenLanguages: ["az", "en"],
       currency: "AZN",
       deliveryNote: {
-        en: "Collection from the studio in Baku, or delivery anywhere in Azerbaijan. Ask about posting abroad — it is possible but we agree the cost first.",
-        az: "Bakıdakı studiyadan götürmək və ya Azərbaycanın istənilən yerinə çatdırılma. Xaricə göndərmə barədə soruşun — mümkündür, amma xərci əvvəlcədən razılaşdırırıq.",
+        en: "Collection from the studio in Baku, or delivery anywhere in Azerbaijan. Ask about posting abroad. It is possible, but we agree the cost first.",
+        az: "Bakıdakı studiyadan götürmək və ya Azərbaycanın istənilən yerinə çatdırılma. Xaricə göndərmə barədə soruşun. Mümkündür, amma xərci əvvəlcədən razılaşdırırıq.",
       },
     },
     members,

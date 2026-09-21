@@ -4,7 +4,7 @@ import type { AppState, Locale, Order, Product } from "./types";
  * Prepared customer messages.
  *
  * Every template is filled from the actual order and product, and every one is
- * editable before it is copied — LoomLock never sends a message itself. Where a
+ * editable before it is copied: LoomLock never sends a message itself. Where a
  * fact is missing the template leaves a marked [gap] rather than guessing at a
  * price or a date.
  */
@@ -67,7 +67,7 @@ export function buildTemplate(key: TemplateKey, ctx: Context): string {
   switch (key) {
     case "price":
       return az
-        ? `Salam, ${name}.\n\n${item} ${price}-dir. Toxunması təxminən ${days} çəkir.\n\n${location} daxilində çatdırılma və ya studiyadan götürmək mümkündür. Ölçüdə və ya rəngdə dəyişiklik istəsəniz, yazın — mümkün olub-olmadığını deyim.`
+        ? `Salam, ${name}.\n\n${item} ${price}-dir. Toxunması təxminən ${days} çəkir.\n\n${location} daxilində çatdırılma və ya studiyadan götürmək mümkündür. Ölçüdə və ya rəngdə dəyişiklik istəsəniz, yazın, mümkün olub-olmadığını deyim.`
         : `Hello ${name},\n\nThe ${item} is ${price}. It takes about ${days} to weave.\n\nYou can collect it from the studio in ${location}, or we can deliver locally. If you would like a different size or colour, tell me and I will check whether it is possible.`;
 
     case "time":
@@ -82,8 +82,8 @@ export function buildTemplate(key: TemplateKey, ctx: Context): string {
 
     case "decline":
       return az
-        ? `Salam, ${name}.\n\nTəklif etdiyiniz tarixə çatdıra bilmərəm — ${item} tələsdirsəm, keyfiyyəti aşağı düşür və mən belə iş göndərmək istəmirəm.\n\n${gap("təklif etdiyiniz tarix", "the date you can offer", locale)} tarixinə hazır edə bilərəm. Sizə uyğundursa, xəbər verin.`
-        : `Hello ${name},\n\nI cannot have it ready by the date you asked for — if I rush the ${item} the weaving suffers, and I would rather not send work like that.\n\nI could have it done by ${gap("the date you can offer", "təklif etdiyiniz tarix", locale)}. Let me know if that suits you.`;
+        ? `Salam, ${name}.\n\nTəklif etdiyiniz tarixə çatdıra bilmərəm. ${item} tələsdirsəm, keyfiyyəti aşağı düşür və mən belə iş göndərmək istəmirəm.\n\n${gap("təklif etdiyiniz tarix", "the date you can offer", locale)} tarixinə hazır edə bilərəm. Sizə uyğundursa, xəbər verin.`
+        : `Hello ${name},\n\nI cannot have it ready by the date you asked for. If I rush the ${item} the weaving suffers, and I would rather not send work like that.\n\nI could have it done by ${gap("the date you can offer", "təklif etdiyiniz tarix", locale)}. Let me know if that suits you.`;
 
     case "ready":
       return az

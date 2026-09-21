@@ -1,31 +1,35 @@
 "use client";
 
-import Link from "next/link";
 import {
   ArrowRight,
-  BookOpen,
   Check,
   ClipboardCheck,
   Hammer,
   LayoutDashboard,
   Megaphone,
-  MessageCircle,
-  Package,
-  ShoppingBag,
   Store,
   X,
 } from "lucide-react";
-import { Wordmark } from "@/components/app/logo";
-import { LanguageSwitcher } from "@/components/app/language-switcher";
-import { Button, ButtonLink } from "@/components/ui/button";
+import { SiteFooter, SiteHeader } from "@/components/app/site-chrome";
+import { ButtonLink } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { TextileSwatch } from "@/components/domain/textile-image";
+import { LESSON_COUNT } from "@/lib/data/lessons";
 import { useI18n } from "@/lib/i18n";
 import { useStore } from "@/lib/data/store";
+import type { Product } from "@/lib/types";
 
+/**
+ * The public landing page.
+ *
+ * Two rules hold the layout together. Sections are separated by the colour of
+ * the ground they sit on, not by a rule stacked on top of that colour change.
+ * And a card is used only where the content is a discrete object you could
+ * pick up (a product, a role, a panel of the app) — a list of six things is
+ * set as a list, not as six boxes.
+ */
 export default function LandingPage() {
   const { d } = useI18n();
-  const { state } = useStore();
 
   return (
     <div className="min-h-dvh bg-canvas">
@@ -33,7 +37,7 @@ export default function LandingPage() {
         {d.nav.skipToContent}
       </a>
 
-      <SiteHeader />
+      <SiteHeader showSectionNav />
 
       <main id="main">
         <Hero />
@@ -42,52 +46,11 @@ export default function LandingPage() {
         <Features />
         <DashboardPreview />
         <ArtisanVoice />
-        <CallToAction slug={state.business.slug} />
+        <CallToAction />
       </main>
 
       <SiteFooter />
     </div>
-  );
-}
-
-/* ------------------------------------------------------------------ header */
-
-function SiteHeader() {
-  const { d } = useI18n();
-  return (
-    <header className="sticky top-0 z-30 border-b border-line bg-ivory/85 backdrop-blur">
-      <div className="container-page flex h-16 items-center gap-4">
-        <Link href="/" aria-label="LoomLock">
-          <Wordmark />
-        </Link>
-
-        <nav aria-label={d.nav.mainMenu} className="ms-6 hidden items-center gap-1 md:flex">
-          {[
-            { href: "#how", label: d.landing.navHowItWorks },
-            { href: "#features", label: d.landing.navFeatures },
-            { href: "#learning", label: d.landing.navLearning },
-          ].map((item) => (
-            <a
-              key={item.href}
-              href={item.href}
-              className="rounded-[var(--radius-field)] px-3 py-2 text-sm font-medium text-stone transition-colors hover:bg-surface-sunk hover:text-charcoal"
-            >
-              {item.label}
-            </a>
-          ))}
-        </nav>
-
-        <div className="ms-auto flex items-center gap-2">
-          <LanguageSwitcher compact />
-          <ButtonLink href="/demo" size="sm" className="hidden sm:inline-flex">
-            {d.landing.heroPrimary}
-          </ButtonLink>
-          <ButtonLink href="/demo" size="sm" className="sm:hidden">
-            {d.demoEntry.enterAs.replace(":", "")}
-          </ButtonLink>
-        </div>
-      </div>
-    </header>
   );
 }
 
@@ -97,17 +60,18 @@ function Hero() {
   const { d } = useI18n();
   return (
     <section className="relative overflow-hidden border-b border-line">
-      <div aria-hidden className="weave-ground absolute inset-0 opacity-70" />
-      {/* A warm wash from the top-left, the way daylight falls on a loom. */}
-      <div
-        aria-hidden
-        className="absolute inset-0 bg-[radial-gradient(60rem_40rem_at_15%_-10%,rgba(184,134,47,0.13),transparent_60%)]"
-      />
+      {/*
+       * One decorative layer, and it means something: the warp and weft of a
+       * loom. The warm radial wash that used to sit on top of it was doing
+       * nothing this texture does not already do.
+       */}
+      <div aria-hidden className="weave-ground absolute inset-0 opacity-60" />
 
-      <div className="container-page relative grid items-center gap-12 py-16 sm:py-20 lg:grid-cols-[1.05fr_0.95fr] lg:py-24">
+      <div className="container-page relative grid items-center gap-12 py-20 sm:py-24 lg:grid-cols-[1.05fr_0.95fr] lg:py-28">
         <div className="animate-fade-up">
-          <p className="inline-flex items-center gap-2 rounded-full border border-line bg-surface px-3 py-1 text-sm font-medium text-walnut">
-            <span aria-hidden className="size-1.5 rounded-full bg-pomegranate" />
+          <p className="flex items-center gap-3 text-sm font-medium uppercase tracking-[0.12em] text-walnut">
+            {/* A short warp thread instead of a badge. */}
+            <span aria-hidden className="h-px w-8 bg-pomegranate" />
             {d.landing.heroEyebrow}
           </p>
 
@@ -115,7 +79,7 @@ function Hero() {
             {d.landing.heroTitle}
           </h1>
 
-          <p className="mt-5 max-w-xl text-lg leading-relaxed text-stone">{d.landing.heroBody}</p>
+          <p className="mt-6 max-w-xl text-lg leading-relaxed text-stone">{d.landing.heroBody}</p>
 
           <div className="mt-8 flex flex-wrap gap-3">
             <ButtonLink href="/demo" size="lg">
@@ -148,10 +112,16 @@ function HeroVisual() {
   const wall = state.products.find((p) => p.id === "product_wall");
 
   return (
-    <div className="relative mx-auto w-full max-w-md lg:max-w-none">
+    <div className="relative mx-auto w-full max-w-md pb-4 lg:max-w-none">
       <Card className="overflow-hidden">
+        {/*
+         * The approval card is anchored inside the photograph rather than
+         * below it, so it breaks the card edge without ever covering the
+         * product's own name and description.
+         */}
         <div className="relative aspect-[4/3] w-full">
           <TextileSwatch motif="pomegranate" palette="pomegranate" />
+          <ApprovalOverlay product={wall} />
         </div>
         <div className="p-5">
           <p className="font-display text-lg font-semibold">{t(runner?.name)}</p>
@@ -165,9 +135,17 @@ function HeroVisual() {
           </div>
         </div>
       </Card>
+    </div>
+  );
+}
 
-      {/* The approval step, floated over the card — the hinge of the product. */}
-      <Card className="absolute -bottom-6 -start-2 w-[min(19rem,88%)] shadow-[var(--shadow-lift)] sm:-start-8">
+/** The approval step: the hinge of the whole product, shown in the hero. */
+function ApprovalOverlay({ product }: { product: Product | undefined }) {
+  const { d, t } = useI18n();
+
+  return (
+    <div className="absolute inset-x-3 bottom-3 sm:inset-x-4 sm:bottom-4">
+      <Card className="shadow-[var(--shadow-lift)]">
         <div className="flex items-start gap-3 p-4">
           <span
             aria-hidden
@@ -177,16 +155,16 @@ function HeroVisual() {
           </span>
           <div className="min-w-0">
             <p className="text-sm font-semibold text-charcoal">
-              {wall ? t(wall.name) : d.approvals.title}
+              {product ? t(product.name) : d.approvals.title}
             </p>
             <p className="mt-0.5 text-xs leading-snug text-stone">
               {d.permissions.ownerConfirmNeeded}
             </p>
             <div className="mt-2.5 flex gap-1.5">
-              <span className="rounded-full bg-pomegranate px-2.5 py-1 text-[0.6875rem] font-semibold text-white">
+              <span className="rounded-[0.375rem] bg-pomegranate px-2.5 py-1 text-[0.6875rem] font-semibold text-white">
                 {d.approvals.approve}
               </span>
-              <span className="rounded-full border border-line px-2.5 py-1 text-[0.6875rem] font-medium text-stone">
+              <span className="rounded-[0.375rem] border border-line px-2.5 py-1 text-[0.6875rem] font-medium text-stone">
                 {d.approvals.sendBack}
               </span>
             </div>
@@ -197,21 +175,33 @@ function HeroVisual() {
   );
 }
 
+/* --------------------------------------------------------- section heading */
+
+/** Every section opens the same way, so the layout underneath is free to differ. */
+function SectionIntro({ title, body }: { title: string; body: string }) {
+  return (
+    <div className="max-w-2xl">
+      <h2 className="font-display text-3xl font-semibold sm:text-4xl">{title}</h2>
+      <p className="mt-4 text-lg leading-relaxed text-stone">{body}</p>
+    </div>
+  );
+}
+
 /* ------------------------------------------------------------- partnership */
 
 function Partnership() {
   const { d } = useI18n();
   return (
-    <section className="border-b border-line bg-parchment/50">
-      <div className="container-page py-16 sm:py-20">
-        <div className="mx-auto max-w-2xl text-center">
-          <h2 className="font-display text-3xl font-semibold sm:text-4xl">
-            {d.landing.partnershipTitle}
-          </h2>
-          <p className="mt-4 text-lg leading-relaxed text-stone">{d.landing.partnershipBody}</p>
-        </div>
+    <section className="bg-parchment/50">
+      <div className="container-page py-20 sm:py-28">
+        <SectionIntro title={d.landing.partnershipTitle} body={d.landing.partnershipBody} />
 
-        <div className="mt-12 grid gap-5 lg:grid-cols-[1fr_auto_1fr] lg:items-stretch">
+        {/*
+         * Two people, two cards. This is the one place on the page where a card
+         * is the right container: each is a discrete party to the same business,
+         * and the pair is meant to be compared side by side.
+         */}
+        <div className="mt-12 grid gap-5 md:grid-cols-2">
           <ContributionCard
             title={d.landing.ownerCardTitle}
             items={d.landing.ownerCardItems}
@@ -219,18 +209,6 @@ function Partnership() {
             Icon={Hammer}
             role={d.roles.owner}
           />
-
-          {/* The join between the two: a woven thread on desktop. */}
-          <div aria-hidden className="hidden items-center justify-center lg:flex">
-            <div className="flex h-full flex-col items-center">
-              <span className="w-px flex-1 bg-[repeating-linear-gradient(180deg,var(--color-line)_0_6px,transparent_6px_12px)]" />
-              <span className="my-2 rounded-full border border-line bg-surface px-3 py-1 text-xs font-medium text-walnut">
-                {d.landing.betweenThem}
-              </span>
-              <span className="w-px flex-1 bg-[repeating-linear-gradient(180deg,var(--color-line)_0_6px,transparent_6px_12px)]" />
-            </div>
-          </div>
-
           <ContributionCard
             title={d.landing.collaboratorCardTitle}
             items={d.landing.collaboratorCardItems}
@@ -240,9 +218,17 @@ function Partnership() {
           />
         </div>
 
-        <p className="mx-auto mt-8 max-w-2xl text-center text-[0.9375rem] leading-relaxed text-stone">
-          {d.landing.betweenThemBody}
-        </p>
+        {/*
+         * What sits between the two columns, said once and in plain words,
+         * rather than drawn as a dotted connector too faint to read.
+         */}
+        <div className="mt-10 flex flex-col items-center gap-5 text-center">
+          <span aria-hidden className="thread-rule w-24" />
+          <p className="max-w-2xl text-[0.9375rem] leading-relaxed text-stone">
+            <span className="font-semibold text-charcoal">{d.landing.betweenThem}: </span>
+            {d.landing.betweenThemBody}
+          </p>
+        </div>
       </div>
     </section>
   );
@@ -262,7 +248,7 @@ function ContributionCard({
   role: string;
 }) {
   return (
-    <Card className="p-6">
+    <Card className="p-6 sm:p-7">
       <div className="flex items-center gap-3">
         <span
           aria-hidden
@@ -280,7 +266,7 @@ function ContributionCard({
         </div>
       </div>
 
-      <ul className="mt-5 space-y-2.5">
+      <ul className="mt-6 space-y-3">
         {items.map((item) => (
           <li key={item} className="flex items-start gap-2.5 text-[0.9375rem] leading-snug">
             <Check
@@ -301,29 +287,29 @@ function ContributionCard({
 
 /* ------------------------------------------------------------ how it works */
 
+/**
+ * A sequence, so it is set as one: a large numeral under a rule, the way a
+ * printed instruction reads. Boxing each step added three borders and said
+ * nothing about the order the steps happen in.
+ */
 function HowItWorks() {
   const { d } = useI18n();
   return (
-    <section id="how" className="scroll-mt-20 border-b border-line">
-      <div className="container-page py-16 sm:py-20">
-        <div className="max-w-2xl">
-          <h2 className="font-display text-3xl font-semibold sm:text-4xl">{d.landing.howTitle}</h2>
-          <p className="mt-3 text-lg text-stone">{d.landing.howBody}</p>
-        </div>
+    <section id="how" className="scroll-mt-20">
+      <div className="container-page py-20 sm:py-28">
+        <SectionIntro title={d.landing.howTitle} body={d.landing.howBody} />
 
-        <ol className="mt-10 grid gap-5 md:grid-cols-3">
+        <ol className="mt-14 grid gap-x-10 gap-y-12 md:grid-cols-3">
           {d.landing.steps.map((step, index) => (
-            <li key={step.title}>
-              <Card className="h-full p-6">
-                <span
-                  aria-hidden
-                  className="flex size-9 items-center justify-center rounded-full bg-charcoal font-display text-sm font-semibold text-ivory"
-                >
-                  {index + 1}
-                </span>
-                <h3 className="mt-4 font-display text-xl font-semibold">{step.title}</h3>
-                <p className="mt-2 text-[0.9375rem] leading-relaxed text-stone">{step.body}</p>
-              </Card>
+            <li key={step.title} className="border-t-2 border-charcoal/20 pt-6">
+              <span
+                aria-hidden
+                className="block font-display text-4xl font-semibold leading-none tabular-nums text-pomegranate/75"
+              >
+                {index + 1}
+              </span>
+              <h3 className="mt-4 font-display text-xl font-semibold">{step.title}</h3>
+              <p className="mt-2.5 text-[0.9375rem] leading-relaxed text-stone">{step.body}</p>
             </li>
           ))}
         </ol>
@@ -334,37 +320,40 @@ function HowItWorks() {
 
 /* ---------------------------------------------------------------- features */
 
+/**
+ * This was six cards with an icon each, and the icons were assigned by array
+ * position — decoration standing in for meaning. It is an index now: a number,
+ * the name, and one concrete fact about the part (how many stages, how many
+ * lessons), so the summary line alone teaches the reader something.
+ */
 function Features() {
   const { d } = useI18n();
-  const icons = [LayoutDashboard, Package, Megaphone, ShoppingBag, BookOpen, Store];
 
   return (
-    <section id="features" className="scroll-mt-20 border-b border-line bg-parchment/50">
-      <div className="container-page py-16 sm:py-20">
-        <div className="max-w-2xl">
-          <h2 className="font-display text-3xl font-semibold sm:text-4xl">
-            {d.landing.featuresTitle}
-          </h2>
-          <p className="mt-3 text-lg text-stone">{d.landing.featuresBody}</p>
-        </div>
+    <section id="features" className="scroll-mt-20 bg-parchment/50">
+      <div className="container-page py-20 sm:py-28">
+        <SectionIntro title={d.landing.featuresTitle} body={d.landing.featuresBody} />
 
-        <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {d.landing.features.map((feature, index) => {
-            const Icon = icons[index] ?? LayoutDashboard;
-            return (
-              <Card key={feature.title} className="p-6">
-                <span
-                  aria-hidden
-                  className="flex size-10 items-center justify-center rounded-[var(--radius-field)] bg-linen text-walnut"
-                >
-                  <Icon className="size-5" />
-                </span>
-                <h3 className="mt-4 font-display text-lg font-semibold">{feature.title}</h3>
-                <p className="mt-1.5 text-[0.9375rem] leading-relaxed text-stone">{feature.body}</p>
-              </Card>
-            );
-          })}
-        </div>
+        <ol className="mt-12 grid sm:grid-cols-2 sm:gap-x-14">
+          {d.landing.features.map((feature, index) => (
+            <li
+              key={feature.title}
+              className="grid grid-cols-[2rem_1fr] gap-x-3 border-t border-line py-6"
+            >
+              <span
+                aria-hidden
+                className="pt-1.5 font-display text-sm font-semibold tabular-nums text-walnut/60"
+              >
+                {String(index + 1).padStart(2, "0")}
+              </span>
+              <div>
+                <h3 className="font-display text-xl font-semibold">{feature.title}</h3>
+                <p className="mt-1 text-sm font-medium text-clay">{feature.detail}</p>
+                <p className="mt-2.5 text-[0.9375rem] leading-relaxed text-stone">{feature.body}</p>
+              </div>
+            </li>
+          ))}
+        </ol>
       </div>
     </section>
   );
@@ -374,19 +363,18 @@ function Features() {
 
 function DashboardPreview() {
   const { d } = useI18n();
-  const icons = [Package, Megaphone, MessageCircle, BookOpen];
 
   return (
-    <section id="learning" className="scroll-mt-20 border-b border-line">
-      <div className="container-page grid items-center gap-12 py-16 sm:py-20 lg:grid-cols-2">
+    <section id="learning" className="scroll-mt-20">
+      <div className="container-page grid items-center gap-12 py-20 sm:py-28 lg:grid-cols-2">
         <div>
           <h2 className="font-display text-3xl font-semibold sm:text-4xl">
             {d.landing.dashboardPreviewTitle}
           </h2>
-          <p className="mt-3 text-lg leading-relaxed text-stone">
+          <p className="mt-4 text-lg leading-relaxed text-stone">
             {d.landing.dashboardPreviewBody}
           </p>
-          <ButtonLink href="/demo" variant="outline" className="mt-6">
+          <ButtonLink href="/demo" variant="outline" className="mt-8">
             {d.landing.ctaPrimary}
             <ArrowRight aria-hidden />
           </ButtonLink>
@@ -397,22 +385,21 @@ function DashboardPreview() {
             <LayoutDashboard aria-hidden className="size-4 text-stone" />
             <p className="text-sm font-medium text-stone">{d.dashboard.needsDoing}</p>
           </div>
+          {/*
+           * These rows are things to do, so they carry an empty tick box. The
+           * decorative icon disc that used to sit here said nothing, and the
+           * trailing arrow implied a link that is not there.
+           */}
           <ul className="divide-y divide-line">
-            {d.landing.dashboardPreviewItems.map((item, index) => {
-              const Icon = icons[index] ?? Package;
-              return (
-                <li key={item} className="flex items-center gap-3 px-5 py-4">
-                  <span
-                    aria-hidden
-                    className="flex size-8 shrink-0 items-center justify-center rounded-full bg-linen text-walnut"
-                  >
-                    <Icon className="size-4" />
-                  </span>
-                  <span className="text-[0.9375rem]">{item}</span>
-                  <ArrowRight aria-hidden className="ms-auto size-4 shrink-0 text-line" />
-                </li>
-              );
-            })}
+            {d.landing.dashboardPreviewItems.map((item) => (
+              <li key={item} className="flex items-start gap-3 px-5 py-4">
+                <span
+                  aria-hidden
+                  className="mt-0.5 size-4 shrink-0 rounded-[0.25rem] border border-line bg-canvas"
+                />
+                <span className="text-[0.9375rem] leading-snug">{item}</span>
+              </li>
+            ))}
           </ul>
           <p className="border-t border-line bg-surface-sunk px-5 py-3 text-xs text-stone">
             {d.landing.dashboardPreviewCaption}
@@ -428,8 +415,8 @@ function DashboardPreview() {
 function ArtisanVoice() {
   const { d } = useI18n();
   return (
-    <section className="border-b border-line bg-charcoal text-ivory">
-      <div className="container-page grid gap-10 py-16 sm:py-20 lg:grid-cols-[1fr_auto] lg:items-center">
+    <section className="bg-charcoal text-ivory">
+      <div className="container-page grid gap-10 py-20 sm:py-28 lg:grid-cols-[1fr_auto] lg:items-center">
         <div className="max-w-2xl">
           <h2 className="font-display text-3xl font-semibold text-ivory sm:text-4xl">
             {d.landing.voiceTitle}
@@ -437,16 +424,11 @@ function ArtisanVoice() {
           <p className="mt-4 text-lg leading-relaxed text-ivory/80">{d.landing.voiceBody}</p>
         </div>
 
-        <ul className="space-y-3">
+        <ul className="space-y-4">
           {d.landing.voicePoints.map((point) => (
             <li key={point} className="flex items-start gap-3">
-              <span
-                aria-hidden
-                className="mt-0.5 flex size-6 shrink-0 items-center justify-center rounded-full bg-ivory/10 text-gold"
-              >
-                <X className="size-3.5" />
-              </span>
-              <span className="text-[0.9375rem] text-ivory/90">{point}</span>
+              <X aria-hidden className="mt-1 size-4 shrink-0 text-gold" />
+              <span className="text-[0.9375rem] leading-relaxed text-ivory/90">{point}</span>
             </li>
           ))}
         </ul>
@@ -457,106 +439,59 @@ function ArtisanVoice() {
 
 /* --------------------------------------------------------------------- cta */
 
-function CallToAction({ slug }: { slug: string }) {
-  const { d } = useI18n();
+/**
+ * The closing panel used to be three woven swatches: pretty, and evidence of
+ * nothing. It now shows what the demo actually contains, counted from the seed
+ * at render time so the numbers cannot drift away from the workspace the
+ * button opens.
+ */
+function CallToAction() {
+  const { d, t } = useI18n();
+  const { state } = useStore();
+  const { business } = state;
+
+  const facts = [
+    { value: state.products.length, label: d.landing.ctaFactProducts },
+    { value: state.orders.length, label: d.landing.ctaFactOrders },
+    { value: LESSON_COUNT, label: d.landing.ctaFactLessons },
+  ];
+
   return (
-    <section className="border-b border-line">
-      <div className="container-page py-16 sm:py-20">
-        <Card className="overflow-hidden">
-          <div className="grid gap-8 p-8 sm:p-10 lg:grid-cols-[1.2fr_0.8fr] lg:items-center">
-            <div>
-              <h2 className="font-display text-3xl font-semibold sm:text-4xl">
-                {d.landing.ctaTitle}
-              </h2>
-              <p className="mt-3 text-lg leading-relaxed text-stone">{d.landing.ctaBody}</p>
-              <div className="mt-6 flex flex-wrap gap-3">
-                <ButtonLink href="/demo" size="lg">
-                  {d.landing.ctaPrimary}
-                  <ArrowRight aria-hidden />
-                </ButtonLink>
-                <ButtonLink href={`/store/${slug}`} variant="outline" size="lg">
-                  <Store aria-hidden />
-                  {d.landing.ctaSecondary}
-                </ButtonLink>
-              </div>
-            </div>
-
-            <div aria-hidden className="grid grid-cols-3 gap-2 lg:gap-3">
-              {(
-                [
-                  ["pomegranate", "pomegranate"],
-                  ["buta", "indigo"],
-                  ["medallion", "clay"],
-                ] as const
-              ).map(([motif, palette]) => (
-                <div
-                  key={motif}
-                  className="aspect-square overflow-hidden rounded-[var(--radius-field)] border border-line"
-                >
-                  <TextileSwatch motif={motif} palette={palette} />
-                </div>
-              ))}
-            </div>
-          </div>
-        </Card>
-      </div>
-    </section>
-  );
-}
-
-/* ------------------------------------------------------------------ footer */
-
-function SiteFooter() {
-  const { d } = useI18n();
-  return (
-    <footer className="bg-parchment/60">
-      <div className="container-page py-12">
-        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-          <div>
-            <Wordmark />
-            <p className="mt-3 max-w-xs text-sm leading-relaxed text-stone">
-              {d.landing.footerTagline}
-            </p>
-          </div>
-
-          <div>
-            <h2 className="text-sm font-semibold text-charcoal">{d.landing.footerBoundaries}</h2>
-            <ul className="mt-3 space-y-2">
-              {d.landing.footerBoundaryItems.map((item) => (
-                <li key={item} className="flex items-start gap-2 text-sm leading-snug text-stone">
-                  <X aria-hidden className="mt-0.5 size-3.5 shrink-0 text-clay" />
-                  <span>{item}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div>
-            <h2 className="text-sm font-semibold text-charcoal">{d.nav.mainMenu}</h2>
-            <ul className="mt-3 space-y-2 text-sm">
-              <li>
-                <Link href="/demo" className="text-stone hover:text-charcoal hover:underline">
-                  {d.landing.ctaPrimary}
-                </Link>
-              </li>
-              <li>
-                <Link href="/onboarding" className="text-stone hover:text-charcoal hover:underline">
-                  {d.onboarding.title}
-                </Link>
-              </li>
-              <li>
-                <Link href="/learn" className="text-stone hover:text-charcoal hover:underline">
-                  {d.nav.learn}
-                </Link>
-              </li>
-            </ul>
+    <section>
+      <div className="container-page grid gap-12 py-20 sm:py-28 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
+        <div>
+          <h2 className="font-display text-3xl font-semibold sm:text-4xl">{d.landing.ctaTitle}</h2>
+          <p className="mt-4 max-w-xl text-lg leading-relaxed text-stone">{d.landing.ctaBody}</p>
+          <div className="mt-8 flex flex-wrap gap-3">
+            <ButtonLink href="/demo" size="lg">
+              {d.landing.ctaPrimary}
+              <ArrowRight aria-hidden />
+            </ButtonLink>
+            <ButtonLink href={`/store/${business.slug}`} variant="outline" size="lg">
+              <Store aria-hidden />
+              {d.landing.ctaSecondary}
+            </ButtonLink>
           </div>
         </div>
 
-        <div className="thread-rule my-8" aria-hidden />
+        <Card className="p-6 sm:p-8">
+          <p className="font-display text-xl font-semibold">{business.name}</p>
+          <p className="mt-1 text-sm text-stone">
+            {t(business.location)} · {d.landing.ctaSince(business.foundedYear)}
+          </p>
 
-        <p className="text-sm text-stone">{d.landing.footerDemoNote}</p>
+          <ul className="mt-6">
+            {facts.map((fact) => (
+              <li key={fact.label} className="flex items-baseline gap-4 border-t border-line py-3.5">
+                <span className="min-w-[2ch] font-display text-2xl font-semibold tabular-nums text-pomegranate">
+                  {fact.value}
+                </span>
+                <span className="text-[0.9375rem] text-stone">{fact.label}</span>
+              </li>
+            ))}
+          </ul>
+        </Card>
       </div>
-    </footer>
+    </section>
   );
 }

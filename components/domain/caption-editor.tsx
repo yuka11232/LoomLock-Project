@@ -19,8 +19,8 @@ import type { ContentDraft, Product } from "@/lib/types";
  * Writing the caption.
  *
  * The starter is built from the family's own product fields and is always
- * editable. The two reminders below it — unfilled [prompts] and over-claiming
- * words — are advisory only. Nothing here blocks the family from writing what
+ * editable. The two reminders below it (unfilled [prompts] and over-claiming
+ * words) are advisory only. Nothing here blocks the family from writing what
  * they want in their own voice.
  */
 export function CaptionEditor({
@@ -121,13 +121,13 @@ export function CaptionEditor({
             {draft.hashtags.map((tag) => (
               <li
                 key={tag}
-                className="inline-flex items-center gap-1 rounded-full border border-line bg-surface px-2.5 py-1 text-sm text-indigo-ink"
+                className="inline-flex items-center gap-1 rounded-[0.3125rem] border border-line bg-surface px-2.5 py-1 text-sm text-indigo-ink"
               >
                 #{tag}
                 <button
                   type="button"
                   onClick={() => onChange({ hashtags: draft.hashtags.filter((h) => h !== tag) })}
-                  className="-me-0.5 rounded-full p-0.5 text-stone hover:text-pomegranate"
+                  className="-me-0.5 rounded-[0.25rem] p-0.5 text-stone hover:text-pomegranate"
                   aria-label={`${d.common.remove}: ${tag}`}
                 >
                   <Trash2 aria-hidden className="size-3" />
@@ -182,9 +182,9 @@ function CopyActions({
   function exportPackage() {
     const cover = product?.images.find((i) => i.isCover) ?? product?.images[0];
     const lines = [
-      `LoomLock — ${d.content.exportPackage}`,
+      `LoomLock: ${d.content.exportPackage}`,
       "",
-      `${d.content.forProduct}: ${product ? t(product.name) : "—"}`,
+      `${d.content.forProduct}: ${product ? t(product.name) : d.common.notSet}`,
       `${d.content.platformLabel} ${d.content.platforms[draft.platform]}`,
       `${d.content.goalLabel}: ${d.content.goals[draft.goal]}`,
       `${d.content.toneLabel}: ${d.content.tones[draft.tone]}`,
@@ -196,7 +196,7 @@ function CopyActions({
       draft.hashtags.map((h) => `#${h}`).join(" "),
       "",
       "--- " + d.productForm.altLabel + " ---",
-      cover ? t(cover.alt) || "—" : "—",
+      cover ? t(cover.alt) || d.common.notSet : d.common.notSet,
       "",
       d.content.notPublishedNotice,
     ];

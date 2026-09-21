@@ -249,7 +249,7 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
                     {state_.missing.map((field) => (
                       <li
                         key={field}
-                        className="rounded-full border border-line bg-surface-sunk px-2.5 py-1 text-xs text-stone"
+                        className="rounded-[0.3125rem] border border-line bg-surface-sunk px-2.5 py-1 text-xs text-stone"
                       >
                         {missingLabels[field]}
                       </li>
@@ -278,7 +278,7 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
                         {actor ? <Avatar member={actor} size="sm" /> : null}
                         <div className="min-w-0 flex-1">
                           <p className="text-sm leading-snug">
-                            <span className="font-medium">{actor?.name ?? "—"}</span>{" "}
+                            <span className="font-medium">{actor?.name ?? d.common.notSet}</span>{" "}
                             <span className="text-stone">
                               {d.products.historyKinds[entry.kind]}
                             </span>

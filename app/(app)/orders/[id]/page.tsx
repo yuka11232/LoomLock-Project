@@ -110,7 +110,7 @@ export default function OrderDetailPage({ params }: { params: Promise<{ id: stri
             </CardHeader>
             <CardBody className="pt-0">
               <blockquote className="border-s-2 border-line ps-4 text-[0.9375rem] leading-relaxed text-charcoal">
-                {t(order.enquiry) || "—"}
+                {t(order.enquiry) || d.common.notSet}
               </blockquote>
               <p className="mt-3 text-xs text-stone">
                 {d.orders.received} {formatDateTime(order.createdAt, locale)} ·{" "}
@@ -222,12 +222,12 @@ export default function OrderDetailPage({ params }: { params: Promise<{ id: stri
                         {author ? <Avatar member={author} size="sm" /> : null}
                         <div className="min-w-0 flex-1">
                           <p className="flex flex-wrap items-baseline gap-x-2 text-sm">
-                            <span className="font-medium">{author?.name ?? "—"}</span>
+                            <span className="font-medium">{author?.name ?? d.common.notSet}</span>
                             <span className="text-xs text-stone">
                               {relativeTime(entry.createdAt, locale)}
                             </span>
                             {entry.kind === "message_sent" ? (
-                              <span className="inline-flex items-center gap-1 rounded-full bg-sage-100 px-2 py-0.5 text-[0.6875rem] font-medium text-[#3d5540]">
+                              <span className="inline-flex items-center gap-1 rounded-[0.3125rem] bg-sage-100 px-2 py-0.5 text-[0.6875rem] font-medium text-[#3d5540]">
                                 <MessageSquareText aria-hidden className="size-3" />
                                 {d.orders.messageSentNote}
                               </span>
@@ -355,7 +355,7 @@ export default function OrderDetailPage({ params }: { params: Promise<{ id: stri
             <CardBody className="pt-0">
               <dl className="space-y-3 text-sm">
                 <Row label={d.orders.customer} value={order.customerName} />
-                <Row label={d.orders.contact} value={order.customerContact || "—"} />
+                <Row label={d.orders.contact} value={order.customerContact || d.common.notSet} />
                 <Row label={d.orders.quantity} value={String(order.quantity)} />
                 <Row
                   label={d.orders.due}

@@ -19,7 +19,7 @@ import type { Member } from "@/lib/types";
  * Choosing a role is the whole point of the screen: LoomLock is about two
  * people with different authority sharing one workspace, and a visitor should
  * pick a side before they see it. Either choice lands in the same seeded
- * business — no registration, no empty state.
+ * business, with no registration and no empty state.
  */
 export default function DemoEntryPage() {
   const { state, dispatch, resetDemo } = useStore();

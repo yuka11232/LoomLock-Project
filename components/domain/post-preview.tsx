@@ -36,7 +36,7 @@ export function PostPreview({
     return (
       <div className="rounded-[var(--radius-card)] border border-line bg-surface p-5">
         <p className="whitespace-pre-line text-[0.9375rem] leading-relaxed text-charcoal">
-          {caption || "—"}
+          {caption || d.common.notSet}
         </p>
         {tagLine ? <p className="mt-3 text-sm text-indigo-ink">{tagLine}</p> : null}
       </div>

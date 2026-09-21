@@ -12,7 +12,7 @@ export interface FilterOption<T extends string> {
  * The filter row above a catalogue or board.
  *
  * Real buttons in a tablist, so the whole row is one tab stop and the arrow
- * keys move between filters — the pattern a keyboard user expects.
+ * keys move between filters, the pattern a keyboard user expects.
  */
 export function FilterTabs<T extends string>({
   label,
@@ -49,7 +49,7 @@ export function FilterTabs<T extends string>({
       role="tablist"
       aria-label={label}
       onKeyDown={onKeyDown}
-      className={cn("thin-scrollbar -mx-1 flex gap-1.5 overflow-x-auto px-1 pb-1", className)}
+      className={cn("scroll-strip-x -mx-1 flex gap-1.5 px-1 py-1", className)}
     >
       {options.map((option) => {
         const selected = option.value === value;
@@ -62,7 +62,7 @@ export function FilterTabs<T extends string>({
             tabIndex={selected ? 0 : -1}
             onClick={() => onChange(option.value)}
             className={cn(
-              "inline-flex min-h-9 shrink-0 items-center gap-1.5 rounded-full border px-3.5 text-sm font-medium transition-colors",
+              "inline-flex min-h-9 shrink-0 items-center gap-1.5 rounded-[0.4rem] border px-3.5 text-sm font-medium transition-colors",
               selected
                 ? "border-pomegranate bg-pomegranate text-white"
                 : "border-line bg-surface text-stone hover:border-walnut/40 hover:text-charcoal",
@@ -72,7 +72,7 @@ export function FilterTabs<T extends string>({
             {typeof option.count === "number" ? (
               <span
                 className={cn(
-                  "rounded-full px-1.5 py-px text-xs tabular-nums",
+                  "rounded-[0.25rem] px-1.5 py-px text-xs tabular-nums",
                   selected ? "bg-white/20" : "bg-surface-sunk text-stone",
                 )}
               >

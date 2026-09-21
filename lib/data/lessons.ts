@@ -33,12 +33,12 @@ export const LESSONS: Lesson[] = [
         az: "Ən böyük fərqi işıq yaradır. Tavan işığını söndürün və işi pəncərənin yanına, gündüz işığına qoyun, amma birbaşa günəşə deyil. Tavan lampaları yunu sarı və ya boz göstərir, gözlədiyindən fərqli rəng alan müştəri isə bir daha sifariş verməz.",
       },
       {
-        en: "The second is the background. A plain surface — a wooden table, a clean wall, a folded sheet — lets the eye go to the weaving. A patterned tablecloth competes with a patterned textile and both lose.",
-        az: "İkincisi fondur. Sadə səth — taxta masa, təmiz divar, qatlanmış mələfə — gözü toxumanın üzərinə yönəldir. Naxışlı süfrə naxışlı toxuma ilə yarışır və hər ikisi itirir.",
+        en: "The second is the background. A plain surface lets the eye go to the weaving: a wooden table, a clean wall, a folded sheet. A patterned tablecloth competes with a patterned textile and both lose.",
+        az: "İkincisi fondur. Sadə səth gözü toxumanın üzərinə yönəldir: taxta masa, təmiz divar, qatlanmış mələfə. Naxışlı süfrə naxışlı toxuma ilə yarışır və hər ikisi itirir.",
       },
       {
-        en: "The third is taking more than one. Customers want three things: the whole piece flat, a close view where the weave is visible, and the piece in use — on a table, on a chair, in a pair of hands. Three ordinary photographs are worth more than one perfect one.",
-        az: "Üçüncüsü birdən çox şəkil çəkməkdir. Müştərilər üç şey istəyir: işin bütövlükdə düz görüntüsü, toxumanın göründüyü yaxın görüntü və işin istifadədə olduğu görüntü — masada, stulda, əllərdə. Üç adi şəkil bir mükəmməl şəkildən dəyərlidir.",
+        en: "The third is taking more than one. Customers want three things: the whole piece flat, a close view where the weave is visible, and the piece in use: on a table, on a chair, in a pair of hands. Three ordinary photographs are worth more than one perfect one.",
+        az: "Üçüncüsü birdən çox şəkil çəkməkdir. Müştərilər üç şey istəyir: işin bütövlükdə düz görüntüsü, toxumanın göründüyü yaxın görüntü və işin istifadədə olduğu görüntü: masada, stulda, əllərdə. Üç adi şəkil bir mükəmməl şəkildən dəyərlidir.",
       },
     ],
     example: {
@@ -47,8 +47,8 @@ export const LESSONS: Lesson[] = [
         az: "Eyni yastıq üzlüyü, iki dəfə",
       },
       body: {
-        en: "Leyla first photographed the indigo cushion cover in the evening under the kitchen light. The blue came out grey-green and Nərgiz said it looked like a different cushion. She took it again the next morning on the windowsill: same cushion, same phone, no filter — and the indigo finally looked like indigo.",
-        az: "Leyla indiqo yastıq üzlüyünü ilk dəfə axşam mətbəx işığında çəkdi. Mavi boz-yaşıl çıxdı və Nərgiz dedi ki, sanki başqa yastıqdır. Səhəri gün pəncərə taxtasında yenidən çəkdi: eyni yastıq, eyni telefon, filtrsiz — və indiqo nəhayət indiqo kimi göründü.",
+        en: "Leyla first photographed the indigo cushion cover in the evening under the kitchen light. The blue came out grey-green and Nərgiz said it looked like a different cushion. She took it again the next morning on the windowsill: same cushion, same phone, no filter. The indigo finally looked like indigo.",
+        az: "Leyla indiqo yastıq üzlüyünü ilk dəfə axşam mətbəx işığında çəkdi. Mavi boz-yaşıl çıxdı və Nərgiz dedi ki, sanki başqa yastıqdır. Səhəri gün pəncərə taxtasında yenidən çəkdi: eyni yastıq, eyni telefon, filtrsiz. İndiqo nəhayət indiqo kimi göründü.",
       },
     },
     action: {
@@ -133,8 +133,8 @@ export const LESSONS: Lesson[] = [
         az: "Bir çox sənətkar qiyməti başqasının rəfinə baxaraq qoyur. Bu, sizə maşın işinin nə qədər olduğunu və ya kirayəsi fərqli olan mağazanın nə aldığını deyir. Amma dolanıb-dolanmadığınızı demir.",
       },
       {
-        en: "Start with three numbers instead: what the materials cost, how many hours the piece takes, and what else you spend to sell it — delivery, packaging, the wool you spoiled learning the pattern. Decide what your hour is worth, even if the number feels uncomfortable to write down. Add the three together. That is your floor, not your price.",
-        az: "Bunun əvəzinə üç rəqəmdən başlayın: materialların dəyəri, işə sərf olunan saatlar və satmaq üçün xərclədiyiniz digər şeylər — çatdırılma, qablaşdırma, naxışı öyrənərkən korladığınız yun. Bir saatınızın dəyərini müəyyən edin, rəqəmi yazmaq narahat gəlsə belə. Üçünü toplayın. Bu, qiymətiniz deyil, ən aşağı həddinizdir.",
+        en: "Start with three numbers instead: what the materials cost, how many hours the piece takes, and what else you spend to sell it: delivery, packaging, the wool you spoiled learning the pattern. Decide what your hour is worth, even if the number feels uncomfortable to write down. Add the three together. That is your floor, not your price.",
+        az: "Bunun əvəzinə üç rəqəmdən başlayın: materialların dəyəri, işə sərf olunan saatlar və satmaq üçün xərclədiyiniz digər şeylər: çatdırılma, qablaşdırma, naxışı öyrənərkən korladığınız yun. Bir saatınızın dəyərini müəyyən edin, rəqəmi yazmaq narahat gəlsə belə. Üçünü toplayın. Bu, qiymətiniz deyil, ən aşağı həddinizdir.",
       },
       {
         en: "The most common mistake is not counting your own hours at all, because the weaving is something you would do anyway. But an unpriced hour is the reason a business that looks busy still has no money at the end of the month.",
@@ -148,8 +148,8 @@ export const LESSONS: Lesson[] = [
     example: {
       title: { en: "The runner, counted honestly", az: "Yolluq, düzgün hesablanmış" },
       body: {
-        en: "Wool and dye for one pomegranate runner: 22 AZN. Nine days at roughly three hours a day: 27 hours. Delivery inside Baku: 3 AZN. At 3 AZN an hour, that is 22 + 81 + 3 = 106 AZN before any profit. Nərgiz has been charging 95. She is not making a small margin — she is paying to weave.",
-        az: "Bir nar yolluğu üçün yun və boya: 22 AZN. Doqquz gün, günə təxminən üç saat: 27 saat. Bakı daxilində çatdırılma: 3 AZN. Saatı 3 AZN-dən, bu, 22 + 81 + 3 = 106 AZN edir, hələ heç bir qazanc olmadan. Nərgiz 95 alır. Onun mənfəəti az deyil — o, toxumaq üçün pul verir.",
+        en: "Wool and dye for one pomegranate runner: 22 AZN. Nine days at roughly three hours a day: 27 hours. Delivery inside Baku: 3 AZN. At 3 AZN an hour, that is 22 + 81 + 3 = 106 AZN before any profit. Nərgiz has been charging 95. She is not making a small margin. She is paying to weave.",
+        az: "Bir nar yolluğu üçün yun və boya: 22 AZN. Doqquz gün, günə təxminən üç saat: 27 saat. Bakı daxilində çatdırılma: 3 AZN. Saatı 3 AZN-dən, bu, 22 + 81 + 3 = 106 AZN edir, hələ heç bir qazanc olmadan. Nərgiz 95 alır. Onun mənfəəti az deyil. O, toxumaq üçün pul verir.",
       },
     },
     action: {
@@ -180,8 +180,8 @@ export const LESSONS: Lesson[] = [
     },
     explanation: [
       {
-        en: "When someone asks “how much is the runner?”, a reply that says only “95 AZN” is technically correct and usually ends the conversation. The customer still does not know how long they will wait, whether the size can change, or how they will receive it — so they go away to think, and thinking usually means forgetting.",
-        az: "Kimsə “yolluq neçəyədir?” soruşanda, yalnız “95 AZN” cavabı texniki cəhətdən düzgündür və adətən söhbəti bitirir. Müştəri hələ də nə qədər gözləyəcəyini, ölçünün dəyişə biləcəyini və ya necə alacağını bilmir — ona görə düşünmək üçün uzaqlaşır, düşünmək isə adətən unutmaq deməkdir.",
+        en: "When someone asks “how much is the runner?”, a reply that says only “95 AZN” is technically correct and usually ends the conversation. The customer still does not know how long they will wait, whether the size can change, or how they will receive it, so they go away to think, and thinking usually means forgetting.",
+        az: "Kimsə “yolluq neçəyədir?” soruşanda, yalnız “95 AZN” cavabı texniki cəhətdən düzgündür və adətən söhbəti bitirir. Müştəri hələ də nə qədər gözləyəcəyini, ölçünün dəyişə biləcəyini və ya necə alacağını bilmir, ona görə düşünmək üçün uzaqlaşır, düşünmək isə adətən unutmaq deməkdir.",
       },
       {
         en: "Answer the question first, in the first line. Then add the two things they will ask next: how long it takes and how they get it. Then stop. Three short lines are read; three paragraphs are not.",
@@ -210,8 +210,8 @@ export const LESSONS: Lesson[] = [
       },
     },
     takeaway: {
-      en: "The order board has prepared messages for the five most common situations. They are starting points — change them so they sound like your family before you send.",
-      az: "Sifariş lövhəsində ən çox rast gəlinən beş hal üçün hazır mesajlar var. Onlar başlanğıcdır — göndərməzdən əvvəl ailənizə oxşasın deyə dəyişin.",
+      en: "The order board has prepared messages for the five most common situations. They are starting points. Change them so they sound like your family before you send.",
+      az: "Sifariş lövhəsində ən çox rast gəlinən beş hal üçün hazır mesajlar var. Onlar başlanğıcdır. Göndərməzdən əvvəl ailənizə oxşasın deyə dəyişin.",
     },
   },
 
@@ -228,7 +228,7 @@ export const LESSONS: Lesson[] = [
     explanation: [
       {
         en: "One person with five orders can keep them in their head. Two people with five orders cannot, and the failure is always the same: both reply, or neither does, and the customer sees a business that does not know what it is doing.",
-        az: "Beş sifarişi olan bir nəfər onları yadında saxlaya bilər. Beş sifarişi olan iki nəfər saxlaya bilməz və nasazlıq həmişə eynidir: ya hər ikisi cavab verir, ya heç biri — və müştəri nə etdiyini bilməyən bir biznes görür.",
+        az: "Beş sifarişi olan bir nəfər onları yadında saxlaya bilər. Beş sifarişi olan iki nəfər saxlaya bilməz və nasazlıq həmişə eynidir: ya hər ikisi cavab verir, ya heç biri. Müştəri isə nə etdiyini bilməyən bir biznes görür.",
       },
       {
         en: "A board fixes this with two habits. Every order sits in exactly one stage, and every order has one name on it. If a card has no name, nobody owns it, and an order nobody owns is the one that gets forgotten.",
@@ -252,8 +252,8 @@ export const LESSONS: Lesson[] = [
         az: "Sifariş lövhəsini açın. Üzərində ad olmayan bir sifariş tapın, ona ad yazın və növbəti addımın nə olduğunu bir sətirlə buraya yazın.",
       },
       placeholder: {
-        en: "NT-119 (Tom) — mine. Next action: find out the postage to the UK before replying.",
-        az: "NT-119 (Tom) — mənim. Növbəti addım: cavab verməzdən əvvəl Britaniyaya poçt xərcini öyrənmək.",
+        en: "NT-119 (Tom) is mine. Next action: find out the postage to the UK before replying.",
+        az: "NT-119 (Tom) mənimdir. Növbəti addım: cavab verməzdən əvvəl Britaniyaya poçt xərcini öyrənmək.",
       },
     },
     takeaway: {
@@ -278,19 +278,19 @@ export const LESSONS: Lesson[] = [
         az: "Gələn pul mənfəət deyil. Hər ödənişdən yun, boya, qablaşdırma, çatdırılma və işlədiyiniz saatlar çıxır. Bunların hamısından sonra qalan mənfəətdir və o, adətən müştərinin ödədiyi gün hiss olunduğundan xeyli azdır.",
       },
       {
-        en: "Some costs repeat with every piece — wool, thread, packaging. Others you pay whether or not you sell anything this month: the loom, the room, the internet. Both are real. A price that only covers the first kind will keep you busy and still leave you short.",
-        az: "Bəzi xərclər hər işlə təkrarlanır — yun, sap, qablaşdırma. Digərlərini bu ay bir şey satsanız da, satmasanız da ödəyirsiniz: dəzgah, otaq, internet. Hər ikisi realdır. Yalnız birinci növü ödəyən qiymət sizi məşğul saxlayacaq, amma yenə də kasıb qoyacaq.",
+        en: "Some costs repeat with every piece: wool, thread, packaging. Others you pay whether or not you sell anything this month: the loom, the room, the internet. Both are real. A price that only covers the first kind will keep you busy and still leave you short.",
+        az: "Bəzi xərclər hər işlə təkrarlanır: yun, sap, qablaşdırma. Digərlərini bu ay bir şey satsanız da, satmasanız da ödəyirsiniz: dəzgah, otaq, internet. Hər ikisi realdır. Yalnız birinci növü ödəyən qiymət sizi məşğul saxlayacaq, amma yenə də kasıb qoyacaq.",
       },
       {
-        en: "You do not need accounting software to see this. A notebook with three columns — what came in, what went out, what it was for — kept for one month will tell you more about the business than a year of guessing.",
-        az: "Bunu görmək üçün mühasibat proqramı lazım deyil. Üç sütunlu bir dəftər — nə gəldi, nə çıxdı, nəyə görə — bir ay saxlansa, biznes haqqında bir illik təxmindən çox şey deyəcək.",
+        en: "You do not need accounting software to see this. A notebook with three columns (what came in, what went out, what it was for) kept for one month will tell you more about the business than a year of guessing.",
+        az: "Bunu görmək üçün mühasibat proqramı lazım deyil. Üç sütunlu bir dəftər (nə gəldi, nə çıxdı, nəyə görə) bir ay saxlansa, biznes haqqında bir illik təxmindən çox şey deyəcək.",
       },
     ],
     example: {
       title: { en: "A month that looked good", az: "Yaxşı görünən bir ay" },
       body: {
-        en: "Last month the studio took 410 AZN across six pieces. Wool and dye cost 96 AZN, packaging and delivery 34 AZN, and a replacement shuttle 15 AZN. That leaves 265 AZN for roughly 70 hours of weaving — under 4 AZN an hour. The month felt busy and successful. The number is the reason the bookmark price is being reconsidered.",
-        az: "Keçən ay studiya altı işdən 410 AZN aldı. Yun və boya 96 AZN, qablaşdırma və çatdırılma 34 AZN, əvəzedici məkik 15 AZN. Təxminən 70 saatlıq toxuma üçün 265 AZN qalır — saatı 4 AZN-dən az. Ay məşğul və uğurlu hiss olundu. Əlfəcin qiymətinin yenidən nəzərdən keçirilməsinin səbəbi məhz bu rəqəmdir.",
+        en: "Last month the studio took 410 AZN across six pieces. Wool and dye cost 96 AZN, packaging and delivery 34 AZN, and a replacement shuttle 15 AZN. That leaves 265 AZN for roughly 70 hours of weaving, which is under 4 AZN an hour. The month felt busy and successful. The number is the reason the bookmark price is being reconsidered.",
+        az: "Keçən ay studiya altı işdən 410 AZN aldı. Yun və boya 96 AZN, qablaşdırma və çatdırılma 34 AZN, əvəzedici məkik 15 AZN. Təxminən 70 saatlıq toxuma üçün 265 AZN qalır, yəni saatı 4 AZN-dən az. Ay məşğul və uğurlu hiss olundu. Əlfəcin qiymətinin yenidən nəzərdən keçirilməsinin səbəbi məhz bu rəqəmdir.",
       },
     },
     action: {
@@ -332,8 +332,8 @@ export const LESSONS: Lesson[] = [
         az: "Xoş mesajın ekran görüntüsünü paylaşmazdan əvvəl adı, şəkli və istifadəçi adını örtün. Tərif onlarsız da eyni dərəcədə istidir. Bağlamanın şəklini paylaşmazdan əvvəl etiketin kadrda olmadığını yoxlayın.",
       },
       {
-        en: "Your own information matters too. A business account does not need your home address, your date of birth, or a photograph of your document. If a platform or a person asks for those to “verify” you, that is worth stopping over — the next lesson is about exactly that.",
-        az: "Öz məlumatlarınız da vacibdir. Biznes hesabına ev ünvanınız, doğum tarixiniz və ya sənədinizin şəkli lazım deyil. Bir platforma və ya bir şəxs sizi “təsdiqləmək” üçün bunları istəyirsə, dayanmağa dəyər — növbəti dərs məhz bundan bəhs edir.",
+        en: "Your own information matters too. A business account does not need your home address, your date of birth, or a photograph of your document. If a platform or a person asks for those to “verify” you, that is worth stopping over. The next lesson is about exactly that.",
+        az: "Öz məlumatlarınız da vacibdir. Biznes hesabına ev ünvanınız, doğum tarixiniz və ya sənədinizin şəkli lazım deyil. Bir platforma və ya bir şəxs sizi “təsdiqləmək” üçün bunları istəyirsə, dayanmağa dəyər. Növbəti dərs məhz bundan bəhs edir.",
       },
     ],
     example: {
@@ -371,8 +371,8 @@ export const LESSONS: Lesson[] = [
     },
     explanation: [
       {
-        en: "Almost every message that ends badly has at least one of three things in it. It is urgent — you must answer today or lose the order. It asks you to move somewhere else — a different app, a link, a form. Or it involves a payment that is strange in shape: too much sent by mistake, a deposit you must refund, a courier only they can arrange.",
-        az: "Pis bitən demək olar hər mesajda üç şeydən ən azı biri var. Təcilidir — bu gün cavab verməsəniz, sifarişi itirəcəksiniz. Sizi başqa yerə çağırır — başqa tətbiq, bir keçid, bir forma. Və ya forması qəribə olan ödəniş var: səhvən çox göndərilib, geri qaytarmalı olduğunuz beh, yalnız onların təşkil edə biləcəyi kuryer.",
+        en: "Almost every message that ends badly has at least one of three things in it. It is urgent: you must answer today or lose the order. It asks you to move somewhere else: a different app, a link, a form. Or it involves a payment that is strange in shape: too much sent by mistake, a deposit you must refund, a courier only they can arrange.",
+        az: "Pis bitən demək olar hər mesajda üç şeydən ən azı biri var. Təcilidir: bu gün cavab verməsəniz, sifarişi itirəcəksiniz. Sizi başqa yerə çağırır: başqa tətbiq, bir keçid, bir forma. Və ya forması qəribə olan ödəniş var: səhvən çox göndərilib, geri qaytarmalı olduğunuz beh, yalnız onların təşkil edə biləcəyi kuryer.",
       },
       {
         en: "A large order from someone with no history, who does not ask a single question about the work, is not a compliment. Real customers ask about size, colour, and when it will be ready. Someone who agrees to any price without looking is not buying a runner.",
@@ -386,8 +386,8 @@ export const LESSONS: Lesson[] = [
     example: {
       title: { en: "The order that was too easy", az: "Həddindən artıq asan sifariş" },
       body: {
-        en: "“I want 15 runners for my hotel, price is no problem, I will send payment today. My courier will collect — just send me the tracking form at this link first.” No question about size, colour, or the nine days each one takes. Leyla did not reply. She showed it to Nərgiz, and they left it.",
-        az: "“Otelim üçün 15 yolluq istəyirəm, qiymət problem deyil, ödənişi bu gün göndərəcəyəm. Kuryerim götürəcək — sadəcə əvvəlcə bu keçiddən izləmə formasını göndərin.” Ölçü, rəng və hər birinin doqquz günü haqqında bir sual yoxdur. Leyla cavab vermədi. Nərgizə göstərdi və mesajı olduğu kimi buraxdılar.",
+        en: "“I want 15 runners for my hotel, price is no problem, I will send payment today. My courier will collect. Just send me the tracking form at this link first.” No question about size, colour, or the nine days each one takes. Leyla did not reply. She showed it to Nərgiz, and they left it.",
+        az: "“Otelim üçün 15 yolluq istəyirəm, qiymət problem deyil, ödənişi bu gün göndərəcəyəm. Kuryerim götürəcək. Sadəcə əvvəlcə bu keçiddən izləmə formasını göndərin.” Ölçü, rəng və hər birinin doqquz günü haqqında bir sual yoxdur. Leyla cavab vermədi. Nərgizə göstərdi və mesajı olduğu kimi buraxdılar.",
       },
     },
     action: {
@@ -401,8 +401,8 @@ export const LESSONS: Lesson[] = [
       },
     },
     takeaway: {
-      en: "This is why a reply that promises a price or a date goes to the owner first — not because anyone is being checked up on.",
-      az: "Qiymət və ya tarix vəd edən cavabın əvvəlcə sahibkara getməsinin səbəbi budur — kimisə yoxlamaq üçün deyil.",
+      en: "This is why a reply that promises a price or a date goes to the owner first, not because anyone is being checked up on.",
+      az: "Qiymət və ya tarix vəd edən cavabın əvvəlcə sahibkara getməsinin səbəbi budur, kimisə yoxlamaq üçün deyil.",
     },
   },
 
@@ -421,23 +421,23 @@ export const LESSONS: Lesson[] = [
     },
     explanation: [
       {
-        en: "A motif that has been woven for generations carries real meaning to real people. When a caption stretches that meaning to make a sale — calling a common pattern ancient, or claiming a symbol means something it does not — the people who grew up with it notice, and the claim is hard to take back.",
-        az: "Nəsillərdir toxunan bir naxış əsl insanlar üçün əsl məna daşıyır. Mətn satış üçün bu mənanı uzadanda — adi naxışı qədim adlandıranda və ya simvolun daşımadığı mənanı iddia edəndə — onunla böyümüş insanlar bunu görür və iddianı geri götürmək çətin olur.",
+        en: "A motif that has been woven for generations carries real meaning to real people. When a caption stretches that meaning to make a sale, by calling a common pattern ancient or claiming a symbol means something it does not, the people who grew up with it notice, and the claim is hard to take back.",
+        az: "Nəsillərdir toxunan bir naxış əsl insanlar üçün əsl məna daşıyır. Mətn satış üçün bu mənanı uzadanda, yəni adi naxışı qədim adlandıranda və ya simvolun daşımadığı mənanı iddia edəndə, onunla böyümüş insanlar bunu görür və iddianı geri götürmək çətin olur.",
       },
       {
-        en: "The honest version is usually more interesting anyway. “This is the first pattern my mother taught me, because it teaches you to count” is better than “an ancient symbol of prosperity” — and it is true, which means you can answer the next question about it.",
-        az: "Dürüst variant onsuz da adətən daha maraqlıdır. “Bu, anamın mənə ilk öyrətdiyi naxışdır, çünki saymağı öyrədir” — “qədim bolluq simvolu”ndan yaxşıdır və doğrudur, yəni bu barədə növbəti sualı da cavablandıra bilərsiniz.",
+        en: "The honest version is usually more interesting anyway. “This is the first pattern my mother taught me, because it teaches you to count” is better than “an ancient symbol of prosperity”, and it is true, which means you can answer the next question about it.",
+        az: "Dürüst variant onsuz da adətən daha maraqlıdır. “Bu, anamın mənə ilk öyrətdiyi naxışdır, çünki saymağı öyrədir” cümləsi “qədim bolluq simvolu”ndan yaxşıdır və doğrudur, yəni bu barədə növbəti sualı da cavablandıra bilərsiniz.",
       },
       {
-        en: "If the meaning is uncertain, say that. “My mother called it a pomegranate; I do not know how old the pattern is” is a perfectly good sentence. And when a younger relative writes the caption, the meaning is not theirs to decide — the person who learned the craft is the one who says what it means.",
-        az: "Məna qeyri-müəyyəndirsə, bunu deyin. “Anam ona nar deyirdi; naxışın nə qədər qədim olduğunu bilmirəm” tamamilə yaxşı cümlədir. Mətni gənc qohum yazanda isə mənaya qərar vermək onun işi deyil — sənəti öyrənmiş adam onun nə demək olduğunu deyir.",
+        en: "If the meaning is uncertain, say that. “My mother called it a pomegranate; I do not know how old the pattern is” is a perfectly good sentence. And when a younger relative writes the caption, the meaning is not theirs to decide. The person who learned the craft is the one who says what it means.",
+        az: "Məna qeyri-müəyyəndirsə, bunu deyin. “Anam ona nar deyirdi; naxışın nə qədər qədim olduğunu bilmirəm” tamamilə yaxşı cümlədir. Mətni gənc qohum yazanda isə mənaya qərar vermək onun işi deyil. Sənəti öyrənmiş adam onun nə demək olduğunu deyir.",
       },
     ],
     example: {
       title: { en: "The caption that was sent back", az: "Geri göndərilən mətn" },
       body: {
         en: "Leyla wrote that the wall textile was “an exclusive masterpiece of Azerbaijani heritage weaving.” Nərgiz sent it back: she would never call her own work a masterpiece, and the piece is a stepped diamond, the first thing a beginner is taught. The corrected caption says that instead, and it is the better post.",
-        az: "Leyla divar toxumasının “Azərbaycan irs toxuculuğunun eksklüziv şah əsəri” olduğunu yazdı. Nərgiz onu geri göndərdi: o, öz işini heç vaxt şah əsər adlandırmazdı, üstəlik bu iş pilləli rombdur — yeni başlayana öyrədilən ilk şey. Düzəldilmiş mətndə məhz bu yazılıb və paylaşım daha yaxşıdır.",
+        az: "Leyla divar toxumasının “Azərbaycan irs toxuculuğunun eksklüziv şah əsəri” olduğunu yazdı. Nərgiz onu geri göndərdi: o, öz işini heç vaxt şah əsər adlandırmazdı, üstəlik bu iş pilləli rombdur, yeni başlayana öyrədilən ilk şey. Düzəldilmiş mətndə məhz bu yazılıb və paylaşım daha yaxşıdır.",
       },
     },
     action: {
@@ -479,8 +479,8 @@ export const LESSONS: Lesson[] = [
         az: "Həlli on dəqiqə çəkir: hər kəsin öhdəsindəki üç-dörd işi yazın və yalnız bir nəfərin verdiyi qərarların qısa siyahısını adlandırın. Kimisə nəzarətdə saxlamaq üçün deyil, ona görə ki, sahibi olmayan birgə iş görülməyən işdir.",
       },
       {
-        en: "Keep the list short and revisit it. As the younger person learns the craft and the older one learns the tools, things move across the line — and that is the point of working together rather than dividing the business in two.",
-        az: "Siyahını qısa saxlayın və ona qayıdın. Gənc adam sənəti, yaşlı adam alətləri öyrəndikcə işlər sərhədi keçir — birlikdə işləməyin, biznesi ikiyə bölməməyin mənası da budur.",
+        en: "Keep the list short and revisit it. As the younger person learns the craft and the older one learns the tools, things move across the line, and that is the point of working together rather than dividing the business in two.",
+        az: "Siyahını qısa saxlayın və ona qayıdın. Gənc adam sənəti, yaşlı adam alətləri öyrəndikcə işlər sərhədi keçir, birlikdə işləməyin və biznesi ikiyə bölməməyin mənası da budur.",
       },
     ],
     example: {

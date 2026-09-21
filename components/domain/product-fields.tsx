@@ -29,7 +29,7 @@ import { newId } from "@/lib/utils";
  * identically whether they are adding a piece or fixing one.
  *
  * Bilingual content is written in whichever language the family is using; the
- * other language keeps whatever was there. That is honest — LoomLock does not
+ * other language keeps whatever was there. That is honest: LoomLock does not
  * pretend to translate an artisan's story on their behalf.
  */
 export interface ProductDraftValue {
@@ -257,7 +257,7 @@ export function MakingSection({ value, onChange }: SectionProps) {
             {value.materials.map((material, index) => (
               <li
                 key={`${material}-${index}`}
-                className="inline-flex items-center gap-1.5 rounded-full border border-line bg-surface px-3 py-1 text-sm"
+                className="inline-flex items-center gap-1.5 rounded-[0.3125rem] border border-line bg-surface px-3 py-1 text-sm"
               >
                 {material}
                 <button
@@ -265,7 +265,7 @@ export function MakingSection({ value, onChange }: SectionProps) {
                   onClick={() =>
                     onChange({ materials: value.materials.filter((_, i) => i !== index) })
                   }
-                  className="-me-1 rounded-full p-0.5 text-stone hover:bg-surface-sunk hover:text-pomegranate"
+                  className="-me-1 rounded-[0.25rem] p-0.5 text-stone hover:bg-surface-sunk hover:text-pomegranate"
                   aria-label={`${d.common.remove}: ${material}`}
                 >
                   <Trash2 aria-hidden className="size-3.5" />
@@ -487,7 +487,7 @@ export function PhotosSection({ value, onChange }: SectionProps) {
               <div className="relative aspect-[4/3]">
                 <ProductImageView image={image} alt="" />
                 {image.isCover ? (
-                  <span className="absolute start-2 top-2 inline-flex items-center gap-1 rounded-full bg-charcoal/85 px-2 py-1 text-[0.6875rem] font-medium text-ivory">
+                  <span className="absolute start-2 top-2 inline-flex items-center gap-1 rounded-[0.3125rem] bg-charcoal/85 px-2 py-1 text-[0.6875rem] font-medium text-ivory">
                     <Star aria-hidden className="size-3" />
                     {d.productForm.coverPhoto}
                   </span>

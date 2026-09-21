@@ -24,7 +24,7 @@ type HelpKey = "photos" | "captions" | "pricing" | "customers" | "orders" | "sto
  * Setting up a business.
  *
  * The demo already contains a running studio, so this flow writes into that
- * same workspace rather than creating an empty one — a visitor who walks
+ * same workspace rather than creating an empty one, so a visitor who walks
  * through it renames the business, adds a product, and lands on a dashboard
  * that already has work in it. Every step can be skipped.
  */
@@ -258,7 +258,7 @@ function OnboardingFlow() {
                 <Link href="/learn" className="font-medium underline underline-offset-4">
                   {d.learn.title}
                 </Link>{" "}
-                — {d.learn.subtitle}
+                · {d.learn.subtitle}
               </Note>
             </>
           ) : null}

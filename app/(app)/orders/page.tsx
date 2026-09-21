@@ -46,7 +46,7 @@ export default function OrdersPage() {
             <div
               role="group"
               aria-label={d.common.view}
-              className="hidden items-center gap-0.5 rounded-full border border-line bg-surface p-0.5 sm:flex"
+              className="hidden items-center gap-0.5 rounded-[var(--radius-field)] border border-line bg-surface p-0.5 sm:flex"
             >
               {(
                 [
@@ -60,7 +60,7 @@ export default function OrdersPage() {
                   onClick={() => setView(value)}
                   aria-pressed={view === value}
                   className={cn(
-                    "inline-flex min-h-9 items-center gap-1.5 rounded-full px-3 text-sm font-medium transition-colors",
+                    "inline-flex min-h-9 items-center gap-1.5 rounded-[0.4rem] px-3 text-sm font-medium transition-colors",
                     view === value
                       ? "bg-charcoal text-white"
                       : "text-stone hover:bg-surface-sunk hover:text-charcoal",
@@ -92,7 +92,7 @@ export default function OrdersPage() {
           }
         />
       ) : view === "board" ? (
-        <div className="thin-scrollbar -mx-4 overflow-x-auto px-4 pb-4 sm:-mx-6 sm:px-6">
+        <div className="scroll-strip-x -mx-4 px-4 pt-1 pb-4 sm:-mx-6 sm:px-6">
           <div className="flex min-w-max gap-4">
             {ORDER_STAGES.map((stage) => {
               const orders = state.orders.filter((order) => order.stage === stage);
@@ -246,7 +246,7 @@ function AddOrderDialog({ open, onClose }: { open: boolean; onClose: () => void 
 
         <Field label={d.orders.requested} optionalLabel={d.common.optional}>
           <Select value={productId} onChange={(e) => setProductId(e.target.value)}>
-            <option value="">—</option>
+            <option value="">{d.common.none}</option>
             {state.products.map((product) => (
               <option key={product.id} value={product.id}>
                 {product.name.en}

@@ -11,7 +11,7 @@ import { cn } from "@/lib/utils";
  * Switching between the two demo roles.
  *
  * This exists because the whole product is about two people with different
- * permissions sharing one workspace — a visitor has to be able to feel the
+ * permissions sharing one workspace, and a visitor has to be able to feel the
  * difference. In a real deployment this control would not exist; you would be
  * whoever you signed in as.
  */

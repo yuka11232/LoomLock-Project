@@ -2,7 +2,7 @@ import { cn } from "@/lib/utils";
 
 /**
  * A progress bar drawn as a woven thread: the filled part is solid, the rest
- * shows the warp it will be woven across. Decorative, but it earns its place —
+ * shows the warp it will be woven across. Decorative, but it earns its place:
  * it is the one place the weaving metaphor says something true about progress.
  */
 export function Progress({
@@ -62,7 +62,7 @@ export function Stepper({
   return (
     <div>
       <p className="text-sm font-medium text-stone sm:hidden">
-        {stepLabel} {current + 1} {ofLabel} {steps.length} — {steps[current]}
+        {stepLabel} {current + 1} {ofLabel} {steps.length} · {steps[current]}
       </p>
 
       <ol className="hidden items-center gap-1 sm:flex" aria-label={stepLabel}>

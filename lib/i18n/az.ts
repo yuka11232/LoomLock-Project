@@ -4,7 +4,7 @@ import type { Dictionary } from "./en";
  * Azerbaijani interface strings (Latin script).
  *
  * Typed as `Dictionary`, so this file must cover every key in en.ts.
- * Tone note: plain, respectful, and addressed to an adult. Avoid officialese —
+ * Tone note: plain, respectful, and addressed to an adult. Avoid officialese;
  * the people reading this may be using a workspace like it for the first time.
  */
 export const az: Dictionary = {
@@ -45,9 +45,10 @@ export const az: Dictionary = {
     assignTo: "Məsul şəxs",
     notes: "Qeydlər",
     addNote: "Qeyd əlavə et",
-    by: "—",
+    by: "tərəfindən",
     today: "Bu gün",
     priceOnRequest: "Qiymət sorğu ilə",
+    notSet: "Göstərilməyib",
     seeAll: "Hamısına bax",
     tryAgain: "Yenidən cəhd et",
     somethingWrong: "Nəsə düz getmədi",
@@ -154,7 +155,7 @@ export const az: Dictionary = {
 
   landing: {
     navHowItWorks: "Necə işləyir",
-    navFeatures: "İçində nə var",
+    navFeatures: "Altı hissə",
     navLearning: "Öyrənmə",
     heroEyebrow: "Sənətkar ailələri üçün",
     heroTitle: "Sizin sənətiniz. Onların rəqəmsal bacarıqları. Bir ailə biznesi.",
@@ -202,32 +203,39 @@ export const az: Dictionary = {
       },
     ],
 
-    featuresTitle: "İçində nə var",
-    featuresBody: "Bir-birinə bağlı beş hissə.",
+    featuresTitle: "Bir-birini davam etdirən altı hissə",
+    featuresBody:
+      "Məhsul paylaşıma çevrilir. Paylaşım sorğu gətirir. Sorğu sifarişə çevrilir. Dərslər yol boyu tanış olmayan hər şeyi əhatə edir.",
     features: [
       {
         title: "Ailə iş sahəsi",
+        detail: "İki rol, bir görüntü",
         body: "Bu gün nə edilməli olduğunu göstərən bir panel: çatışmayan şəkillər, oxunmalı qaralamalar, cavablandırılmalı sorğular.",
       },
       {
         title: "Məhsul kataloqu",
-        body: "Uzun anket əvəzinə yönləndirici suallar. Materiallar, hazırlanma müddəti, qiymət və işin arxasındakı hekayə.",
+        detail: "Boş anket yox, yönləndirici suallar",
+        body: "Materiallar, hazırlanma müddəti, qiymət və işin arxasındakı hekayə.",
       },
       {
         title: "Sosial media studiyası",
-        body: "Məhsulu paylaşım qaralamasına çevirin, ton seçin, öncədən baxın, təsdiq alın və mətni kopyalayın.",
+        detail: "Qaralama, təsdiq, kopyalama",
+        body: "Məhsulu paylaşım qaralamasına çevirin, ton seçin, öncədən baxın, sonra mətni əl ilə kopyalayın.",
       },
       {
         title: "Sifarişlər və sorğular",
-        body: "İlk sorğudan çatdırılmaya qədər görünən lövhə və göndərməzdən əvvəl redaktə edə biləcəyiniz hazır mesajlar.",
+        detail: "Altı mərhələ, bir lövhə",
+        body: "İlk sorğudan çatdırılmaya qədər, göndərməzdən əvvəl redaktə edə biləcəyiniz hazır mesajlarla.",
       },
       {
         title: "Öyrənmə yolu",
-        body: "Qiymətqoyma, şəkillər, müştəri mesajları və məlumatın qorunması haqqında on qısa dərs.",
+        detail: "On qısa dərs",
+        body: "Qiymətqoyma, şəkillər, müştəri mesajları və məlumatın qorunması.",
       },
       {
         title: "İctimai səhifə",
-        body: "Sənətkarın hekayəsi və məhsulları olan sadə vitrin, üstəlik müştəri sorğuları üçün forma.",
+        detail: "Paylaşmaq üçün bir link",
+        body: "Sənətkarın hekayəsi və məhsulları olan vitrin, üstəlik müştəri sorğuları üçün forma.",
       },
     ],
 
@@ -244,14 +252,18 @@ export const az: Dictionary = {
 
     voiceTitle: "Sənətkarın səsi sənətkarda qalır",
     voiceBody:
-      "LoomLock tanımadığı bir sənət haqqında hekayə yazmır. Paylaşım hazırlayanda ailənin artıq yazdıqlarından — materiallardan, vaxtdan, naxışın mənasından — başlanğıc nöqtəsi qurur, cümlələri isə onları bilən insanlara buraxır.",
+      "LoomLock tanımadığı bir sənət haqqında hekayə yazmır. Paylaşım hazırlayanda ailənin artıq yazdıqlarından (materiallardan, vaxtdan, naxışın mənasından) başlanğıc nöqtəsi qurur, cümlələri isə onları bilən insanlara buraxır.",
     voicePoints: [
       "Uydurulmuş mədəni iddialar yoxdur",
       "Şişirdilmiş reklam dili yoxdur",
       "Sənətkarın təsdiqi olmadan heç nə ictimai olmur",
     ],
 
-    ctaTitle: "Nümayiş biznesi ilə sınayın",
+    ctaTitle: "Nərgizin studiyası artıq hazırdır",
+    ctaSince: (year: number) => `${year}-cu ildən toxuyur`,
+    ctaFactProducts: "Kataloqda",
+    ctaFactOrders: "Sifariş lövhəsində",
+    ctaFactLessons: "Keçiləcək dərs",
     ctaBody:
       "Bakıda uydurma bir toxuculuq studiyası: yarımçıq məhsullar, oxunmağı gözləyən qaralamalar və davam edən sifarişlər. İkisinin necə uyuşduğunu görmək üçün rollar arasında keçid edin.",
     ctaPrimary: "Nümayişi aç",
@@ -543,7 +555,7 @@ export const az: Dictionary = {
     uploadHelp:
       "JPG və ya PNG. Şəkillər brauzerinizdə kiçildilir və bu cihazda qalır.",
     addPlaceholder: "Əvəzinə nümunə naxış işlət",
-    placeholderNote: "Nümunə naxış — bunu əsl şəkillə əvəz edin",
+    placeholderNote: "Nümunə naxış. Bunu əsl şəkillə əvəz edin",
     setCover: "Əsas şəkil kimi işlət",
     coverPhoto: "Əsas şəkil",
     altLabel: "Bu şəkli təsvir edin",
@@ -658,7 +670,7 @@ export const az: Dictionary = {
       "Paylaşımlar artıq hekayəsi və şəkli olan məhsul haqqında daha yaxşı alınır.",
     noProductsTitle: "Hələ paylaşım üçün məhsul yoxdur",
     noProductsBody: "Əvvəlcə məhsul əlavə edin, sonra paylaşım hazırlamağa qayıdın.",
-    productHasNoStory: "Bu məhsulun hələ hekayəsi yoxdur — başlanğıc zəif olacaq.",
+    productHasNoStory: "Bu məhsulun hələ hekayəsi yoxdur, ona görə başlanğıc zəif olacaq.",
     createdDraft: "Qaralama saxlanıldı",
   },
 
@@ -907,7 +919,7 @@ export const az: Dictionary = {
     messagePlaceholder:
       "180 sm uzunluğunda süfrə üçün yolluq istəyirəm. Başqa rəng mümkündürmü?",
     send: "Sorğunu göndər",
-    sentTitle: "Təşəkkür edirik — mesajınız çatdı",
+    sentTitle: "Təşəkkür edirik. Mesajınız çatdı",
     sentBody:
       "Ailə onu sifariş lövhəsində görəcək. Bu nümayişdə heç kimə e-poçt göndərilmir.",
     sendAnother: "Başqa sorğu göndər",
@@ -945,6 +957,137 @@ export const az: Dictionary = {
       member_invited: "ailə üzvü dəvət etdi",
       enquiry_received: "sorğu aldı",
     },
+  },
+
+  legal: {
+    privacyTitle: "Məxfilik",
+    termsTitle: "Şərtlər",
+    privacyHeading: "Məxfilik siyasəti",
+    termsHeading: "İstifadə şərtləri",
+    privacyLead:
+      "LoomLock işlək prototipdir. Burada hesab yoxdur və işinizi saxlayan server yoxdur, ona görə deyiləsi çox az şey var. Bu səhifə onu sadə dillə deyir.",
+    termsLead:
+      "Bu şərtlər LoomLock prototipinə və nümayiş iş sahəsinə aiddir. Sadə dillə yazılıb, çünki bu məhsulun hazırlandığı insanlar onu oxumaq üçün hüquqşünasa ehtiyac duymamalıdır.",
+    lastUpdated: (date: string) => `Son yenilənmə: ${date}`,
+    backHome: "LoomLock-a qayıt",
+    operatorTodoTitle: "Sayt işə düşməzdən əvvəl",
+    operatorTodoBody:
+      "İki detal hələ də saytı idarə edən şəxsə aiddir: məxfilik sualları üçün əlaqə ünvanı və hansı ölkənin qanununun tətbiq olunduğu. Hər ikisi aşağıda qeyd olunub və işə salmazdan əvvəl doldurulmalıdır.",
+    placeholderContact: "[işə salmazdan əvvəl operatorun əlaqə e-poçtunu yazın]",
+    placeholderLaw: "[işə salmazdan əvvəl tətbiq olunan ölkəni və ya regionu yazın]",
+    footerLine: "Hesab yoxdur. İzləmə yoxdur. Ödəniş yoxdur.",
+
+    privacySections: [
+      {
+        heading: "Daxil etdiyiniz heç nə cihazınızdan çıxmır",
+        body: [
+          "Nümayiş iş sahəsində yaratdığınız hər şey öz brauzerinizdə, istifadə etdiyiniz cihazın yerli yaddaşında saxlanılır. Məhsullar, sifarişlər, mətnlər, qeydlər, dərs cavabları və şəkillər orada qalır.",
+          "Nüsxəsini saxlayan LoomLock serveri yoxdur, çünki bu versiyada belə bir server mövcud deyil. LoomLock-da heç kim yazdıqlarınızı görə bilmir.",
+        ],
+      },
+      {
+        heading: "Hesab yoxdur, izləmə yoxdur, reklam yoxdur",
+        body: [
+          "Qeydiyyatdan keçmirsiniz və e-poçt ünvanı vermirsiniz. Analitika skriptləri, reklam şəbəkələri, izləmə pikselləri və sizi saytlar arasında izləyən kukilər yoxdur.",
+          "Şriftlər şrift provayderindən yox, elə bu saytdan verilir, ona görə səhifəni açmağınız üçüncü tərəfə sizin gəldiyinizi bildirmir.",
+        ],
+      },
+      {
+        heading: "Əlavə etdiyiniz şəkillər",
+        body: [
+          "Məhsula əlavə etdiyiniz şəkil brauzerinizin içində kiçildilir və həmin yerli yaddaşda saxlanılır. O, heç vaxt yüklənmir. LoomLock-u başqa cihazda açsanız, şəkilləriniz orada olmayacaq, çünki onlar birinci cihazdan heç vaxt çıxmayıb.",
+        ],
+      },
+      {
+        heading: "İctimai səhifədən göndərilən sorğular",
+        body: [
+          "Nümayiş vitrinindəki sorğu forması sorğunun sifariş lövhəsinə necə çatdığını görəsiniz deyə öz brauzerinizə yeni sifariş yazır. Heç kimə e-poçt və ya mesaj göndərilmir.",
+        ],
+      },
+      {
+        heading: "Zəhmət olmasa nümayişə əsl müştəriləri yazmayın",
+        body: [
+          "Bu, prototip olduğu üçün onu sənəd şkafı yox, eskiz dəftəri kimi qəbul edin. LoomLock-u sınayırsınızsa, əsl müştərinin adı və əlaqə məlumatı əvəzinə uydurma məlumat işlədin.",
+        ],
+      },
+      {
+        heading: "Hər şeyi silmək",
+        body: [
+          "Tənzimləmələri açın və Nümayişi sıfırla seçin. Bu, ilkin nümayiş biznesini geri qaytarır və dəyişdiyiniz hər şeyi silir.",
+          "Brauzerinizdə bu domen üçün sayt məlumatlarını təmizləmək də hamısını silir. Heç birini bizdən istəmək lazım deyil, çünki bizdə silinəsi heç nə yoxdur.",
+        ],
+      },
+      {
+        heading: "Ailələr və gənc istifadəçilər",
+        body: [
+          "LoomLock bir böyüyün və ailənin gənc üzvünün birlikdə istifadəsi üçün düşünülüb. Bu versiya heç kimdən, heç bir yaşda, şəxsi məlumat toplamır və heç nə ötürmür.",
+          "İş sahəsi gənc üzvün fəaliyyətini valideynin yoxlaması üçün izləmir. Birgə fəaliyyət lenti bizneslə nə edildiyini göstərir və hər iki şəxs onu eyni cür görür.",
+        ],
+      },
+      {
+        heading: "LoomLock hostlanan məhsula çevrilsə",
+        body: [
+          "Hesablar və hostlanan verilənlər bazası gələcək planlardadır və hələ mövcud deyil. Bu dəyişsə, hər hansı hesab yaradılmazdan əvvəl bu səhifə yenidən yazılacaq və dəyişiklik yuxarıda tarixlə göstəriləcək.",
+        ],
+      },
+    ],
+
+    termsSections: [
+      {
+        heading: "LoomLock nədir",
+        body: [
+          "LoomLock sənətkar ailələri üçün birgə iş sahəsinin prototipidir. O, olduğu kimi, qiymətləndirmə üçün təqdim olunur; xidmət səviyyəsi və işləməyə davam edəcəyinə zəmanət verilmir.",
+        ],
+      },
+      {
+        heading: "Nümayiş biznesi uydurmadır",
+        body: [
+          "Nərgiz Toxuculuq Studiyası, oradakı insanlar, məhsullar, sifarişlər və müştərilər bu nümayiş üçün yazılıb. Bu, əsl emalatxana deyil və LoomLock tərəfdaşı deyil. Nümayiş vitrinindəki heç nə satışda deyil.",
+        ],
+      },
+      {
+        heading: "LoomLock nə etmir",
+        body: [
+          "O, Instagram, Facebook, TikTok və ya başqa xidmətə paylaşım yerləşdirmir. Mətni sizin əl ilə köçürməyiniz üçün hazırlayır.",
+          "Ödəniş qəbul etmir, pul saxlamır və bank hesabına qoşulmur.",
+          "Sizin adınızdan müştəri mesajı göndərmir və qəbul etmir.",
+          "Öyrənmə yolundakı heç nə hüquqi, vergi və ya maliyyə məsləhəti deyil. Bu, kiçik sənətkarlıq biznesi üçün ümumi məlumatdır; pul və ya qanunla bağlı əsl qərar peşəkar tələb edir.",
+        ],
+      },
+      {
+        heading: "İşiniz sizindir",
+        body: [
+          "Daxil etdiyiniz məhsullar, hekayələr, mətnlər və şəkillər sizə aiddir. Onlar cihazınızda qalır və LoomLock onlara heç bir hüquq iddia etmir.",
+          "Əlavə etdiyiniz hər şeyi, o cümlədən başqasının hazırladığı işin şəklini istifadə etmək hüququna sahib olmaq sizin məsuliyyətinizdədir.",
+        ],
+      },
+      {
+        heading: "Ağlabatan istifadə",
+        body: [
+          "LoomLock-dan qanunu pozmaq, bir şəxsi və ya biznesi təqlid etmək, yaxud sənət ənənəsi haqqında yalan olduğunu bildiyiniz iddialar yaymaq üçün istifadə etməyin.",
+        ],
+      },
+      {
+        heading: "Məlumatlarınız itə bilər",
+        body: [
+          "Hər şey brauzerinizdə saxlandığı üçün itə bilər: sayt məlumatlarının təmizlənməsi, gizli rejim, yeni cihaz və ya brauzerdə yerin bitməsi onu özü ilə aparır. İtirməyə heyifsiləndiyiniz hər şeyin öz nüsxənizi saxlayın.",
+        ],
+      },
+      {
+        heading: "Zəmanət yoxdur, məsuliyyət məhduddur",
+        body: [
+          "Prototip heç bir açıq və ya nəzərdə tutulan zəmanət olmadan təqdim olunur. Qanunun icazə verdiyi həddə, LoomLock itirilmiş iş, itirilmiş biznes və ya istifadədən doğan hər hansı dolayı zərərə görə məsuliyyət daşımır.",
+        ],
+      },
+      {
+        heading: "Şərtlərdə dəyişiklik",
+        body: [
+          "Məhsul dəyişdikcə bu şərtlər də dəyişə bilər. Səhifənin yuxarısındakı tarix onların sonuncu dəfə nə vaxt yeniləndiyini göstərir.",
+        ],
+      },
+    ],
+    governingLawHeading: "Tətbiq olunan qanun",
+    contactHeading: "Əlaqə",
   },
 
   errors: {

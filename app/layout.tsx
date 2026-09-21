@@ -22,7 +22,7 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: {
-    default: "LoomLock — a shared workspace for artisan families",
+    default: "LoomLock: a shared workspace for artisan families",
     template: "%s · LoomLock",
   },
   description:

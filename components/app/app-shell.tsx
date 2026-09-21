@@ -92,7 +92,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
             <Icon aria-hidden className="size-[18px] shrink-0" />
             <span className="flex-1 truncate">{label}</span>
             {count ? (
-              <span className="min-w-5 rounded-full bg-pomegranate px-1.5 py-0.5 text-center text-xs font-semibold tabular-nums text-white">
+              <span className="min-w-5 rounded-[0.25rem] bg-pomegranate px-1.5 py-0.5 text-center text-xs font-semibold tabular-nums text-white">
                 {count}
               </span>
             ) : null}

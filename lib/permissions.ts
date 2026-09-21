@@ -4,7 +4,7 @@ import type { Role } from "./types";
  * LoomLock's permission model.
  *
  * The point is family coordination, not surveillance. A collaborator is never
- * "blocked" from contributing — they are routed through the owner for the small
+ * "blocked" from contributing; they are routed through the owner for the small
  * set of actions that are public-facing, financial, or hard to undo.
  *
  * Four outcomes:
